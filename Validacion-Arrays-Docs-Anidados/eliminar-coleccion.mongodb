@@ -1,0 +1,3 @@
+use("db_usuarios")
+
+db.suppliers.drop()
