@@ -1,0 +1,6 @@
+use("db_usuarios")
+
+// Consultar la coleccion de usuarios 
+// Select * from usuarios
+
+db.usuarios.find()
