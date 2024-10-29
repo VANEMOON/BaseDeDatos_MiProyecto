@@ -1,0 +1,10 @@
+use("db_usuarios")
+
+db.usuarios.insertOne({
+    email: 'ejemplo@gmail.com',
+    contrasena: 'contrasena123',
+    rol: 'Admin',
+    fecha_creacion: new Date(),
+    edad: 30,
+    estado: true
+});
