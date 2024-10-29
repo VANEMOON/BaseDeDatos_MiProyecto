@@ -1,0 +1,39 @@
+use("db_usuarios")
+
+// Crear esquema de validación para la colección 'usuarios' con tips avanzados
+db.createCollection('usuarios', {
+    validator: {
+        $jsonSchema: {
+            bsonType: 'object',
+            title: 'Validación avanzada del objeto de usuarios',
+            required: ['_id', 'email', 'contrasena'], // Campos requeridos
+            properties: {
+                _id: { bsonType: 'objectId' }, // Tipo obligatorio para el campo _id
+                email: { 
+                    bsonType: 'string',
+                    description: 'Correo del usuario',
+                    pattern: "^[A-Za-z\\d.-]+@[A-Za-z\\d.-]+\\.[A-Za-z]{2,}$" // Regex para validar el email
+                },
+                contrasena: { 
+                    bsonType: 'string',
+                    description: 'Clave del usuario entre 8 y 20 caracteres',
+                    pattern: "^.{8,20}$" // Regex para contraseña
+                },
+                rol: { enum: ['Admin', 'Guest', 'Users', 'Employee', 'Customer'] },
+                fecha_creacion: { bsonType: 'date' },
+                edad: { 
+                    bsonType: 'int',
+                    minimum: 18,
+                    maximum: 60
+                },
+                estado: { bsonType: 'bool' }
+            }
+        }
+    }
+});
+
+// Crear un índice único en el campo 'email' para evitar duplicados
+db.usuarios.createIndex(
+    { email: 1 },
+    { unique: true }
+);
