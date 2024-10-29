@@ -1,0 +1,5 @@
+// Usar la base de datos
+use("db_esquema");
+
+// Eliminar la colección si existe
+db.equipos.drop();

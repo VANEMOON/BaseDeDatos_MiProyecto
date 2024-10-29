@@ -1,0 +1,13 @@
+
+// Usar la base de datos
+use("db_esquema");
+
+db.tecnicos.insertOne({
+    Nombre: 'Juan',
+    ApellidoPaterno: 'Pérez',
+    ApellidoMaterno: 'García',
+    CorreoElectronico: 'juan.perez@example.com',
+    Telefono: ['3531338868'],  
+
+    Especialidad: 'Electrónica'
+});

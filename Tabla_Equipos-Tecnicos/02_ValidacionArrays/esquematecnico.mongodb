@@ -1,0 +1,50 @@
+// Usar la base de datos
+use("db_esquema");
+
+// Crear el esquema de validación de técnicos
+db.createCollection('tecnicos', {
+    validator: {
+        $jsonSchema: {
+            bsonType: 'object',
+            required: ['Nombre', 'ApellidoPaterno', 'CorreoElectronico', 'Telefono', 'Especialidad'],
+            properties: {
+                IdTecnico: {
+                    bsonType: 'int',
+                    description: 'Identificador único del técnico, se genera automáticamente'
+                },
+                Nombre: {
+                    bsonType: 'string',
+                    description: 'Nombre del técnico, no puede ser nulo'
+                },
+                ApellidoPaterno: {
+                    bsonType: 'string',
+                    description: 'Apellido paterno del técnico, no puede ser nulo'
+                },
+                ApellidoMaterno: {
+                    bsonType: 'string',
+                    description: 'Apellido materno del técnico'
+                },
+                CorreoElectronico: {
+                    bsonType: 'string',
+                    description: 'Correo electrónico del técnico, debe ser único y no puede ser nulo',
+                    
+                },
+                Telefono: {
+                    bsonType: 'array',
+                    description: 'Array de números de teléfono del técnico, debe contener al menos un número y no aceptar valores nulos',
+                    minItems: 1,  // Mínimo 1 número de teléfono
+                    items: {
+                        bsonType: 'string',
+                        description: 'Número de teléfono',
+                    
+                    },
+                    uniqueItems: true // No permite números de teléfono duplicados
+                },
+                Especialidad: {
+                    bsonType: 'string',
+                    description: 'Especialidad del técnico, no puede ser nulo'
+                }
+            }
+        }
+    }
+});
