@@ -1,0 +1,35 @@
+// Usar la base de datos
+use("db_esquema");
+
+// Modificar el esquema de la colección "refacciones"
+db.runCommand({
+    collMod: 'refacciones',
+    validator: {
+        $jsonSchema: {
+            bsonType: 'object',
+            required: ['NombreRefaccion', 'CantidadDisponible', 'PrecioUnitario'],
+            properties: {
+                IdRefaccion: {
+                    bsonType: 'int',
+                    description: 'Identificador único de la refacción, se genera automáticamente'
+                },
+                NombreRefaccion: {
+                    bsonType: 'string',
+                    maxLength: 150,
+                    description: 'Nombre de la refacción, no puede ser nulo y tiene un máximo de 150 caracteres'
+                },
+                CantidadDisponible: {
+                    bsonType: 'int',
+                    minimum: 0,
+                    description: 'Cantidad de refacciones disponibles en inventario, no puede ser negativa'
+                },
+                PrecioUnitario: {
+                    bsonType: 'decimal',
+                    minimum: 0.01,
+                    description: 'Precio unitario de la refacción, debe ser mayor a 0'
+                }
+            }
+        }
+    },
+    validationLevel: "strict"
+});
