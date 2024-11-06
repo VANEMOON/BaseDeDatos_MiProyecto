@@ -1,0 +1,107 @@
+use("db_esquema");
+
+db.createCollection("tickets_reparacion", {
+    validator: {
+        $jsonSchema: {
+            bsonType: "object",
+            title: "Esquema de Tickets de Reparación",
+            required: ["IdTicket", "ProblemaReportado", "Estado", "Tecnico", "Equipo"],
+            properties: {
+                IdTicket: {
+                    bsonType: "int",
+                    description: "Identificador único del ticket de reparación"
+                },
+                ProblemaReportado: {
+                    bsonType: "string",
+                    description: "Descripción del problema reportado",
+                    maxLength: 255
+                },
+                Estado: {
+                    bsonType: "string",
+                    description: "Estado actual del ticket (Pendiente, En Proceso, Finalizado)",
+                    enum: ["Pendiente", "En Proceso", "Finalizado"]
+                },
+                Tecnico: {
+                    bsonType: "object",
+                    title: "Información del Técnico asignado",
+                    required: ["IdTecnico", "NombreCompleto", "CorreoElectronico", "Telefono"],
+                    properties: {
+                        IdTecnico: {
+                            bsonType: "int",
+                            description: "Identificador del técnico asignado"
+                        },
+                        NombreCompleto: {
+                            bsonType: "string",
+                            description: "Nombre completo del técnico",
+                            maxLength: 100
+                        },
+                        CorreoElectronico: {
+                            bsonType: "string",
+                            description: "Correo electrónico del técnico",
+                            pattern: "^[A-Za-z\\d._%+-]+@[A-Za-z\\d.-]+\\.[A-Za-z]{2,}$"
+                        },
+                        Telefono: {
+                            bsonType: "string",
+                            description: "Teléfono de contacto del técnico",
+                            pattern: "^[0-9]{10,15}$"
+                        }
+                    }
+                },
+                Equipo: {
+                    bsonType: "object",
+                    title: "Detalles del equipo en reparación",
+                    required: ["IdEquipo", "NumeroSerie", "EstadoInicial", "FechaRegistro", "ModeloEquipo"],
+                    properties: {
+                        IdEquipo: {
+                            bsonType: "int",
+                            description: "Identificador del equipo en reparación"
+                        },
+                        NumeroSerie: {
+                            bsonType: "string",
+                            description: "Número de serie del equipo",
+                            maxLength: 100
+                        },
+                        EstadoInicial: {
+                            bsonType: "string",
+                            description: "Estado inicial del equipo al llegar al taller",
+                            maxLength: 255
+                        },
+                        FechaRegistro: {
+                            bsonType: "date",
+                            description: "Fecha de registro del equipo en el sistema"
+                        },
+                        ModeloEquipo: {
+                            bsonType: "object",
+                            title: "Información del modelo del equipo",
+                            required: ["Marca", "Modelo", "Tipo"],
+                            properties: {
+                                Marca: {
+                                    bsonType: "string",
+                                    description: "Marca del equipo",
+                                    maxLength: 100
+                                },
+                                Modelo: {
+                                    bsonType: "string",
+                                    description: "Modelo del equipo",
+                                    maxLength: 100
+                                },
+                                Tipo: {
+                                    bsonType: "string",
+                                    description: "Tipo de equipo (Teléfono móvil, Computadora, Tablet, etc.)",
+                                    maxLength: 100
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+});
+
+
+// Crear un índice para asegurar la unicidad del campo 'IdEquipo' en la colección 'tickets_reparacion'
+db.tickets_reparacion.createIndex(
+    { IdEquipo: 1 },
+    { unique: true }
+);

@@ -1,0 +1,28 @@
+use("db_esquema")
+
+use("db_esquema");
+
+db.tickets_reparacion.insertOne(
+    {
+        "IdTicket": 46,
+        "ProblemaReportado": "Pantalla rota",
+        "Estado": "Pendiente",
+        "Tecnico": {
+            "IdTecnico": 1,
+            "NombreCompleto": "Guillermo Castillo Fernández",
+            "CorreoElectronico": "guillermo.castillo@example.com",
+            "Telefono": "5544332251"
+        },
+        "Equipo": {
+            "IdEquipo": 1,
+            "NumeroSerie": "SN1234567911",
+            "EstadoInicial": "Pantalla agrietada",
+            "FechaRegistro": { "$date": "2024-10-11T23:09:33.357Z" },
+            "ModeloEquipo": {
+                "Marca": "Samsung",
+                "Modelo": "Galaxy S22",
+                "Tipo": "Teléfono móvil"
+            }
+        }
+    }
+);

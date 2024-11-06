@@ -1,0 +1,1206 @@
+use("db_esquema")
+
+db.tickets_reparacion.insertMany(
+    [
+        {
+            "IdTicket": 46,
+            "ProblemaReportado": "Pantalla rota",
+            "Estado": "Pendiente",
+            "Tecnico": {
+                "IdTecnico": 1,
+                "NombreCompleto": "Guillermo Castillo Fernández",
+                "CorreoElectronico": "guillermo.castillo@example.com",
+                "Telefono": "5544332251"
+            },
+            "Equipo": [
+                {
+                    "IdEquipo": 1,
+                    "NumeroSerie": "SN1234567911",
+                    "EstadoInicial": "Pantalla agrietada",
+                    "FechaRegistro": "2024-10-11T23:09:33.357",
+                    "ModeloEquipo": {
+                        "Marca": "Samsung",
+                        "Modelo": "Galaxy S22",
+                        "Tipo": "Teléfono móvil"
+                    }
+                }
+            ]
+        },
+        {
+            "IdTicket": 47,
+            "ProblemaReportado": "No enciende",
+            "Estado": "En Proceso",
+            "Tecnico": {
+                "IdTecnico": 2,
+                "NombreCompleto": "Nayeli Gómez Pérez",
+                "CorreoElectronico": "nayeli.gomez@example.com",
+                "Telefono": "5544332252"
+            },
+            "Equipo": [
+                {
+                    "IdEquipo": 2,
+                    "NumeroSerie": "SN1234567912",
+                    "EstadoInicial": "No enciende",
+                    "FechaRegistro": "2024-10-11T23:09:33.357",
+                    "ModeloEquipo": {
+                        "Marca": "Apple",
+                        "Modelo": "iPhone 13",
+                        "Tipo": "Teléfono móvil"
+                    }
+                }
+            ]
+        },
+        {
+            "IdTicket": 48,
+            "ProblemaReportado": "Problemas de batería",
+            "Estado": "Finalizado",
+            "Tecnico": {
+                "IdTecnico": 3,
+                "NombreCompleto": "Sergio Hernández Santos",
+                "CorreoElectronico": "sergio.hernandez@example.com",
+                "Telefono": "5544332253"
+            },
+            "Equipo": [
+                {
+                    "IdEquipo": 3,
+                    "NumeroSerie": "SN1234567913",
+                    "EstadoInicial": "Problemas de batería",
+                    "FechaRegistro": "2024-10-11T23:09:33.357",
+                    "ModeloEquipo": {
+                        "Marca": "Dell",
+                        "Modelo": "Inspiron 15",
+                        "Tipo": "Computadora"
+                    }
+                }
+            ]
+        },
+        {
+            "IdTicket": 49,
+            "ProblemaReportado": "Rayones en carcasa",
+            "Estado": "Pendiente",
+            "Tecnico": {
+                "IdTecnico": 4,
+                "NombreCompleto": "Gabriela Jiménez Ríos",
+                "CorreoElectronico": "gabriela.jimenez@example.com",
+                "Telefono": "5544332254"
+            },
+            "Equipo": [
+                {
+                    "IdEquipo": 4,
+                    "NumeroSerie": "SN1234567914",
+                    "EstadoInicial": "Rayones en carcasa",
+                    "FechaRegistro": "2024-10-11T23:09:33.357",
+                    "ModeloEquipo": {
+                        "Marca": "HP",
+                        "Modelo": "Omen 17",
+                        "Tipo": "Computadora"
+                    }
+                }
+            ]
+        },
+        {
+            "IdTicket": 50,
+            "ProblemaReportado": "Altavoces dañados",
+            "Estado": "En Proceso",
+            "Tecnico": {
+                "IdTecnico": 5,
+                "NombreCompleto": "Rafael Martínez López",
+                "CorreoElectronico": "rafael.martinez@example.com",
+                "Telefono": "5544332255"
+            },
+            "Equipo": [
+                {
+                    "IdEquipo": 5,
+                    "NumeroSerie": "SN1234567915",
+                    "EstadoInicial": "Altavoces dañados",
+                    "FechaRegistro": "2024-10-11T23:09:33.357",
+                    "ModeloEquipo": {
+                        "Marca": "Lenovo",
+                        "Modelo": "Legion 5",
+                        "Tipo": "Computadora"
+                    }
+                }
+            ]
+        },
+        {
+            "IdTicket": 51,
+            "ProblemaReportado": "Sin imagen en pantalla",
+            "Estado": "Pendiente",
+            "Tecnico": {
+                "IdTecnico": 6,
+                "NombreCompleto": "Andrea Mendoza González",
+                "CorreoElectronico": "andrea.mendoza@example.com",
+                "Telefono": "5544332256"
+            },
+            "Equipo": [
+                {
+                    "IdEquipo": 6,
+                    "NumeroSerie": "SN1234567916",
+                    "EstadoInicial": "Sin imagen en pantalla",
+                    "FechaRegistro": "2024-10-11T23:09:33.357",
+                    "ModeloEquipo": {
+                        "Marca": "Sony",
+                        "Modelo": "Bravia A80J",
+                        "Tipo": "Televisor"
+                    }
+                }
+            ]
+        },
+        {
+            "IdTicket": 52,
+            "ProblemaReportado": "Conector de carga dañado",
+            "Estado": "Finalizado",
+            "Tecnico": {
+                "IdTecnico": 7,
+                "NombreCompleto": "Jorge Cruz Hernández",
+                "CorreoElectronico": "jorge.cruz@example.com",
+                "Telefono": "5544332257"
+            },
+            "Equipo": [
+                {
+                    "IdEquipo": 7,
+                    "NumeroSerie": "SN1234567917",
+                    "EstadoInicial": "Conector de carga dañado",
+                    "FechaRegistro": "2024-10-11T23:09:33.357",
+                    "ModeloEquipo": {
+                        "Marca": "LG",
+                        "Modelo": "NanoCell 75",
+                        "Tipo": "Televisor"
+                    }
+                }
+            ]
+        },
+        {
+            "IdTicket": 53,
+            "ProblemaReportado": "Lento al encender",
+            "Estado": "Pendiente",
+            "Tecnico": {
+                "IdTecnico": 8,
+                "NombreCompleto": "Mónica López Pérez",
+                "CorreoElectronico": "monica.lopez@example.com",
+                "Telefono": "5544332258"
+            },
+            "Equipo": [
+                {
+                    "IdEquipo": 8,
+                    "NumeroSerie": "SN1234567918",
+                    "EstadoInicial": "Lento al encender",
+                    "FechaRegistro": "2024-10-11T23:09:33.357",
+                    "ModeloEquipo": {
+                        "Marca": "Xiaomi",
+                        "Modelo": "Redmi Note 10 Pro",
+                        "Tipo": "Teléfono móvil"
+                    }
+                }
+            ]
+        },
+        {
+            "IdTicket": 54,
+            "ProblemaReportado": "Sin señal",
+            "Estado": "Pendiente",
+            "Tecnico": {
+                "IdTecnico": 9,
+                "NombreCompleto": "Francisco Rodríguez Sánchez",
+                "CorreoElectronico": "francisco.rodriguez@example.com",
+                "Telefono": "5544332259"
+            },
+            "Equipo": [
+                {
+                    "IdEquipo": 9,
+                    "NumeroSerie": "SN1234567919",
+                    "EstadoInicial": "Sin señal",
+                    "FechaRegistro": "2024-10-11T23:09:33.357",
+                    "ModeloEquipo": {
+                        "Marca": "Huawei",
+                        "Modelo": "Mate 40",
+                        "Tipo": "Teléfono móvil"
+                    }
+                }
+            ]
+        },
+        {
+            "IdTicket": 55,
+            "ProblemaReportado": "Pantalla rota",
+            "Estado": "Pendiente",
+            "Tecnico": {
+                "IdTecnico": 10,
+                "NombreCompleto": "Sandra García Torres",
+                "CorreoElectronico": "sandra.garcia@example.com",
+                "Telefono": "5544332260"
+            },
+            "Equipo": [
+                {
+                    "IdEquipo": 10,
+                    "NumeroSerie": "SN1234567920",
+                    "EstadoInicial": "Pantalla rota",
+                    "FechaRegistro": "2024-10-11T23:09:33.357",
+                    "ModeloEquipo": {
+                        "Marca": "Microsoft",
+                        "Modelo": "Surface Pro 8",
+                        "Tipo": "Tablet"
+                    }
+                }
+            ]
+        },
+        {
+            "IdTicket": 56,
+            "ProblemaReportado": "Batería dañada",
+            "Estado": "Finalizado",
+            "Tecnico": {
+                "IdTecnico": 11,
+                "NombreCompleto": "Luis Álvarez Ramírez",
+                "CorreoElectronico": "luis.alvarez@example.com",
+                "Telefono": "5544332261"
+            },
+            "Equipo": [
+                {
+                    "IdEquipo": 11,
+                    "NumeroSerie": "SN2234567911",
+                    "EstadoInicial": "Sin problemas visibles",
+                    "FechaRegistro": "2024-10-11T23:09:33.357",
+                    "ModeloEquipo": {
+                        "Marca": "Acer",
+                        "Modelo": "Nitro 5",
+                        "Tipo": "Computadora"
+                    }
+                }
+            ]
+        },
+        {
+            "IdTicket": 57,
+            "ProblemaReportado": "Problemas de software",
+            "Estado": "En Proceso",
+            "Tecnico": {
+                "IdTecnico": 12,
+                "NombreCompleto": "Laura Moreno Cruz",
+                "CorreoElectronico": "laura.moreno@example.com",
+                "Telefono": "5544332262"
+            },
+            "Equipo": [
+                {
+                    "IdEquipo": 12,
+                    "NumeroSerie": "SN2234567912",
+                    "EstadoInicial": "Lento en aplicaciones",
+                    "FechaRegistro": "2024-10-11T23:09:33.357",
+                    "ModeloEquipo": {
+                        "Marca": "Asus",
+                        "Modelo": "TUF Gaming F15",
+                        "Tipo": "Computadora"
+                    }
+                }
+            ]
+        },
+        {
+            "IdTicket": 58,
+            "ProblemaReportado": "Rayones en pantalla",
+            "Estado": "Pendiente",
+            "Tecnico": {
+                "IdTecnico": 13,
+                "NombreCompleto": "Carlos Sosa González",
+                "CorreoElectronico": "carlos.sosa@example.com",
+                "Telefono": "5544332263"
+            },
+            "Equipo": [
+                {
+                    "IdEquipo": 13,
+                    "NumeroSerie": "SN2234567913",
+                    "EstadoInicial": "Sin señal WiFi",
+                    "FechaRegistro": "2024-10-11T23:09:33.357",
+                    "ModeloEquipo": {
+                        "Marca": "Toshiba",
+                        "Modelo": "Dynabook Tecra",
+                        "Tipo": "Computadora"
+                    }
+                }
+            ]
+        },
+        {
+            "IdTicket": 59,
+            "ProblemaReportado": "Altavoces distorsionados",
+            "Estado": "Finalizado",
+            "Tecnico": {
+                "IdTecnico": 14,
+                "NombreCompleto": "Fernando Pérez Martínez",
+                "CorreoElectronico": "fernando.perez@example.com",
+                "Telefono": "5544332264"
+            },
+            "Equipo": [
+                {
+                    "IdEquipo": 14,
+                    "NumeroSerie": "SN2234567914",
+                    "EstadoInicial": "Altavoces distorsionados",
+                    "FechaRegistro": "2024-10-11T23:09:33.357",
+                    "ModeloEquipo": {
+                        "Marca": "Google",
+                        "Modelo": "Pixel 6",
+                        "Tipo": "Teléfono móvil"
+                    }
+                }
+            ]
+        },
+        {
+            "IdTicket": 60,
+            "ProblemaReportado": "Pantalla no responde",
+            "Estado": "En Proceso",
+            "Tecnico": {
+                "IdTecnico": 15,
+                "NombreCompleto": "Ricardo Vega Flores",
+                "CorreoElectronico": "ricardo.vega@example.com",
+                "Telefono": "5544332265"
+            },
+            "Equipo": [
+                {
+                    "IdEquipo": 15,
+                    "NumeroSerie": "SN2234567915",
+                    "EstadoInicial": "Problemas en el botón de encendido",
+                    "FechaRegistro": "2024-10-11T23:09:33.357",
+                    "ModeloEquipo": {
+                        "Marca": "Motorola",
+                        "Modelo": "Edge 20",
+                        "Tipo": "Teléfono móvil"
+                    }
+                }
+            ]
+        },
+        {
+            "IdTicket": 61,
+            "ProblemaReportado": "Sin imagen en pantalla",
+            "Estado": "Pendiente",
+            "Tecnico": {
+                "IdTecnico": 16,
+                "NombreCompleto": "Isabel Ortiz Gutiérrez",
+                "CorreoElectronico": "isabel.ortiz@example.com",
+                "Telefono": "5544332266"
+            },
+            "Equipo": [
+                {
+                    "IdEquipo": 16,
+                    "NumeroSerie": "SN2234567916",
+                    "EstadoInicial": "Se reinicia solo",
+                    "FechaRegistro": "2024-10-11T23:09:33.357",
+                    "ModeloEquipo": {
+                        "Marca": "Nokia",
+                        "Modelo": "G50",
+                        "Tipo": "Teléfono móvil"
+                    }
+                }
+            ]
+        },
+        {
+            "IdTicket": 62,
+            "ProblemaReportado": "Problemas de conectividad",
+            "Estado": "Finalizado",
+            "Tecnico": {
+                "IdTecnico": 17,
+                "NombreCompleto": "Elena Núñez Morales",
+                "CorreoElectronico": "elena.nunez@example.com",
+                "Telefono": "5544332267"
+            },
+            "Equipo": [
+                {
+                    "IdEquipo": 17,
+                    "NumeroSerie": "SN2234567917",
+                    "EstadoInicial": "Problemas de carga",
+                    "FechaRegistro": "2024-10-11T23:09:33.357",
+                    "ModeloEquipo": {
+                        "Marca": "Vizio",
+                        "Modelo": "P-Series Quantum",
+                        "Tipo": "Televisor"
+                    }
+                }
+            ]
+        },
+        {
+            "IdTicket": 63,
+            "ProblemaReportado": "Batería agotada rápidamente",
+            "Estado": "En Proceso",
+            "Tecnico": {
+                "IdTecnico": 18,
+                "NombreCompleto": "Óscar Lara Vargas",
+                "CorreoElectronico": "oscar.lara@example.com",
+                "Telefono": "5544332268"
+            },
+            "Equipo": [
+                {
+                    "IdEquipo": 18,
+                    "NumeroSerie": "SN2234567918",
+                    "EstadoInicial": "Sobrecalentamiento",
+                    "FechaRegistro": "2024-10-11T23:09:33.357",
+                    "ModeloEquipo": {
+                        "Marca": "OnePlus",
+                        "Modelo": "Nord 2",
+                        "Tipo": "Teléfono móvil"
+                    }
+                }
+            ]
+        },
+        {
+            "IdTicket": 64,
+            "ProblemaReportado": "Pantalla negra",
+            "Estado": "Pendiente",
+            "Tecnico": {
+                "IdTecnico": 19,
+                "NombreCompleto": "Patricia Díaz Méndez",
+                "CorreoElectronico": "patricia.diaz@example.com",
+                "Telefono": "5544332269"
+            },
+            "Equipo": [
+                {
+                    "IdEquipo": 19,
+                    "NumeroSerie": "SN2234567919",
+                    "EstadoInicial": "Sin conexión WiFi",
+                    "FechaRegistro": "2024-10-11T23:09:33.357",
+                    "ModeloEquipo": {
+                        "Marca": "Oppo",
+                        "Modelo": "Reno 6 Pro",
+                        "Tipo": "Teléfono móvil"
+                    }
+                }
+            ]
+        },
+        {
+            "IdTicket": 65,
+            "ProblemaReportado": "Botón de encendido dañado",
+            "Estado": "Pendiente",
+            "Tecnico": {
+                "IdTecnico": 20,
+                "NombreCompleto": "Víctor Salinas Ramos",
+                "CorreoElectronico": "victor.salinas@example.com",
+                "Telefono": "5544332270"
+            },
+            "Equipo": [
+                {
+                    "IdEquipo": 20,
+                    "NumeroSerie": "SN2234567920",
+                    "EstadoInicial": "Daños en la carcasa",
+                    "FechaRegistro": "2024-10-11T23:09:33.357",
+                    "ModeloEquipo": {
+                        "Marca": "Realme",
+                        "Modelo": "GT Master Edition",
+                        "Tipo": "Teléfono móvil"
+                    }
+                }
+            ]
+        },
+        {
+            "IdTicket": 66,
+            "ProblemaReportado": "Sobrecalentamiento",
+            "Estado": "Pendiente",
+            "Tecnico": {
+                "IdTecnico": 21,
+                "NombreCompleto": "Iván Reyes Santos",
+                "CorreoElectronico": "ivan.reyes@example.com",
+                "Telefono": "5544332271"
+            },
+            "Equipo": [
+                {
+                    "IdEquipo": 21,
+                    "NumeroSerie": "SN1234567921",
+                    "EstadoInicial": "Pantalla rota",
+                    "FechaRegistro": "2024-10-11T23:09:33.357",
+                    "ModeloEquipo": {
+                        "Marca": "Samsung",
+                        "Modelo": "Galaxy S22",
+                        "Tipo": "Teléfono móvil"
+                    }
+                }
+            ]
+        },
+        {
+            "IdTicket": 67,
+            "ProblemaReportado": "Problemas con el micrófono",
+            "Estado": "En Proceso",
+            "Tecnico": {
+                "IdTecnico": 22,
+                "NombreCompleto": "Luz Rojas Pérez",
+                "CorreoElectronico": "luz.rojas@example.com",
+                "Telefono": "5544332272"
+            },
+            "Equipo": [
+                {
+                    "IdEquipo": 22,
+                    "NumeroSerie": "SN1234567922",
+                    "EstadoInicial": "No enciende",
+                    "FechaRegistro": "2024-10-11T23:09:33.357",
+                    "ModeloEquipo": {
+                        "Marca": "Apple",
+                        "Modelo": "iPhone 13",
+                        "Tipo": "Teléfono móvil"
+                    }
+                }
+            ]
+        },
+        {
+            "IdTicket": 68,
+            "ProblemaReportado": "Altavoces rotos",
+            "Estado": "Pendiente",
+            "Tecnico": {
+                "IdTecnico": 23,
+                "NombreCompleto": "Daniela Vásquez López",
+                "CorreoElectronico": "daniela.vasquez@example.com",
+                "Telefono": "5544332273"
+            },
+            "Equipo": [
+                {
+                    "IdEquipo": 23,
+                    "NumeroSerie": "SN1234567923",
+                    "EstadoInicial": "Problemas de batería",
+                    "FechaRegistro": "2024-10-11T23:09:33.357",
+                    "ModeloEquipo": {
+                        "Marca": "Dell",
+                        "Modelo": "Inspiron 15",
+                        "Tipo": "Computadora"
+                    }
+                }
+            ]
+        },
+        {
+            "IdTicket": 69,
+            "ProblemaReportado": "Lento al iniciar",
+            "Estado": "Finalizado",
+            "Tecnico": {
+                "IdTecnico": 24,
+                "NombreCompleto": "Raúl Montoya Gómez",
+                "CorreoElectronico": "raul.montoya@example.com",
+                "Telefono": "5544332274"
+            },
+            "Equipo": [
+                {
+                    "IdEquipo": 24,
+                    "NumeroSerie": "SN1234567924",
+                    "EstadoInicial": "Rayones en carcasa",
+                    "FechaRegistro": "2024-10-11T23:09:33.357",
+                    "ModeloEquipo": {
+                        "Marca": "HP",
+                        "Modelo": "Omen 17",
+                        "Tipo": "Computadora"
+                    }
+                }
+            ]
+        },
+        {
+            "IdTicket": 70,
+            "ProblemaReportado": "No se conecta al Wi-Fi",
+            "Estado": "Pendiente",
+            "Tecnico": {
+                "IdTecnico": 25,
+                "NombreCompleto": "Gustavo Herrera Cruz",
+                "CorreoElectronico": "gustavo.herrera@example.com",
+                "Telefono": "5544332275"
+            },
+            "Equipo": [
+                {
+                    "IdEquipo": 25,
+                    "NumeroSerie": "SN1234567925",
+                    "EstadoInicial": "Altavoces dañados",
+                    "FechaRegistro": "2024-10-11T23:09:33.357",
+                    "ModeloEquipo": {
+                        "Marca": "Lenovo",
+                        "Modelo": "Legion 5",
+                        "Tipo": "Computadora"
+                    }
+                }
+            ]
+        },
+        {
+            "IdTicket": 71,
+            "ProblemaReportado": "Falla en la cámara",
+            "Estado": "En Proceso",
+            "Tecnico": {
+                "IdTecnico": 26,
+                "NombreCompleto": "Beatriz Sánchez Díaz",
+                "CorreoElectronico": "beatriz.sanchez@example.com",
+                "Telefono": "5544332276"
+            },
+            "Equipo": [
+                {
+                    "IdEquipo": 26,
+                    "NumeroSerie": "SN1234567926",
+                    "EstadoInicial": "Sin imagen en pantalla",
+                    "FechaRegistro": "2024-10-11T23:09:33.357",
+                    "ModeloEquipo": {
+                        "Marca": "Sony",
+                        "Modelo": "Bravia A80J",
+                        "Tipo": "Televisor"
+                    }
+                }
+            ]
+        },
+        {
+            "IdTicket": 72,
+            "ProblemaReportado": "Rayones en la carcasa",
+            "Estado": "Finalizado",
+            "Tecnico": {
+                "IdTecnico": 27,
+                "NombreCompleto": "Alejandro Pineda Morales",
+                "CorreoElectronico": "alejandro.pineda@example.com",
+                "Telefono": "5544332277"
+            },
+            "Equipo": [
+                {
+                    "IdEquipo": 27,
+                    "NumeroSerie": "SN1234567927",
+                    "EstadoInicial": "Conector de carga dañado",
+                    "FechaRegistro": "2024-10-11T23:09:33.357",
+                    "ModeloEquipo": {
+                        "Marca": "LG",
+                        "Modelo": "NanoCell 75",
+                        "Tipo": "Televisor"
+                    }
+                }
+            ]
+        },
+        {
+            "IdTicket": 73,
+            "ProblemaReportado": "Problemas con el conector de audífonos",
+            "Estado": "Pendiente",
+            "Tecnico": {
+                "IdTecnico": 28,
+                "NombreCompleto": "Rocío Morales Santos",
+                "CorreoElectronico": "rocio.morales@example.com",
+                "Telefono": "5544332278"
+            },
+            "Equipo": [
+                {
+                    "IdEquipo": 28,
+                    "NumeroSerie": "SN1234567928",
+                    "EstadoInicial": "Lento al encender",
+                    "FechaRegistro": "2024-10-11T23:09:33.357",
+                    "ModeloEquipo": {
+                        "Marca": "Xiaomi",
+                        "Modelo": "Redmi Note 10 Pro",
+                        "Tipo": "Teléfono móvil"
+                    }
+                }
+            ]
+        },
+        {
+            "IdTicket": 74,
+            "ProblemaReportado": "No enciende la pantalla",
+            "Estado": "Pendiente",
+            "Tecnico": {
+                "IdTecnico": 29,
+                "NombreCompleto": "José Vargas Gutiérrez",
+                "CorreoElectronico": "jose.vargas@example.com",
+                "Telefono": "5544332279"
+            },
+            "Equipo": [
+                {
+                    "IdEquipo": 29,
+                    "NumeroSerie": "SN1234567929",
+                    "EstadoInicial": "Sin señal",
+                    "FechaRegistro": "2024-10-11T23:09:33.357",
+                    "ModeloEquipo": {
+                        "Marca": "Huawei",
+                        "Modelo": "Mate 40",
+                        "Tipo": "Teléfono móvil"
+                    }
+                }
+            ]
+        },
+        {
+            "IdTicket": 75,
+            "ProblemaReportado": "Problemas con el sonido",
+            "Estado": "Finalizado",
+            "Tecnico": {
+                "IdTecnico": 30,
+                "NombreCompleto": "Adriana Guerrero Martínez",
+                "CorreoElectronico": "adriana.guerrero@example.com",
+                "Telefono": "5544332280"
+            },
+            "Equipo": [
+                {
+                    "IdEquipo": 30,
+                    "NumeroSerie": "SN1234567930",
+                    "EstadoInicial": "Pantalla rota",
+                    "FechaRegistro": "2024-10-11T23:09:33.357",
+                    "ModeloEquipo": {
+                        "Marca": "Microsoft",
+                        "Modelo": "Surface Pro 8",
+                        "Tipo": "Tablet"
+                    }
+                }
+            ]
+        },
+        {
+            "IdTicket": 76,
+            "ProblemaReportado": "Pantalla distorsionada",
+            "Estado": "En Proceso",
+            "Tecnico": {
+                "IdTecnico": 31,
+                "NombreCompleto": "Emilio Cervantes Álvarez",
+                "CorreoElectronico": "emilio.cervantes@example.com",
+                "Telefono": "5544332281"
+            },
+            "Equipo": [
+                {
+                    "IdEquipo": 31,
+                    "NumeroSerie": "SN2234567921",
+                    "EstadoInicial": "Sin problemas visibles",
+                    "FechaRegistro": "2024-10-11T23:09:33.357",
+                    "ModeloEquipo": {
+                        "Marca": "Acer",
+                        "Modelo": "Nitro 5",
+                        "Tipo": "Computadora"
+                    }
+                }
+            ]
+        },
+        {
+            "IdTicket": 77,
+            "ProblemaReportado": "Conector de carga flojo",
+            "Estado": "Pendiente",
+            "Tecnico": {
+                "IdTecnico": 32,
+                "NombreCompleto": "Eduardo Jiménez Ríos",
+                "CorreoElectronico": "eduardo.jimenez@example.com",
+                "Telefono": "5544332282"
+            },
+            "Equipo": [
+                {
+                    "IdEquipo": 32,
+                    "NumeroSerie": "SN2234567922",
+                    "EstadoInicial": "Lento en aplicaciones",
+                    "FechaRegistro": "2024-10-11T23:09:33.357",
+                    "ModeloEquipo": {
+                        "Marca": "Asus",
+                        "Modelo": "TUF Gaming F15",
+                        "Tipo": "Computadora"
+                    }
+                }
+            ]
+        },
+        {
+            "IdTicket": 78,
+            "ProblemaReportado": "Sobrecalentamiento en uso",
+            "Estado": "Pendiente",
+            "Tecnico": {
+                "IdTecnico": 33,
+                "NombreCompleto": "Jacqueline Pérez López",
+                "CorreoElectronico": "jacqueline.perez@example.com",
+                "Telefono": "5544332283"
+            },
+            "Equipo": [
+                {
+                    "IdEquipo": 33,
+                    "NumeroSerie": "SN2234567923",
+                    "EstadoInicial": "Sin señal WiFi",
+                    "FechaRegistro": "2024-10-11T23:09:33.357",
+                    "ModeloEquipo": {
+                        "Marca": "Toshiba",
+                        "Modelo": "Dynabook Tecra",
+                        "Tipo": "Computadora"
+                    }
+                }
+            ]
+        },
+        {
+            "IdTicket": 79,
+            "ProblemaReportado": "Batería drenada",
+            "Estado": "Finalizado",
+            "Tecnico": {
+                "IdTecnico": 34,
+                "NombreCompleto": "Roberto García Martínez",
+                "CorreoElectronico": "roberto.garcia@example.com",
+                "Telefono": "5544332284"
+            },
+            "Equipo": [
+                {
+                    "IdEquipo": 34,
+                    "NumeroSerie": "SN2234567924",
+                    "EstadoInicial": "Altavoces distorsionados",
+                    "FechaRegistro": "2024-10-11T23:09:33.357",
+                    "ModeloEquipo": {
+                        "Marca": "Google",
+                        "Modelo": "Pixel 6",
+                        "Tipo": "Teléfono móvil"
+                    }
+                }
+            ]
+        },
+        {
+            "IdTicket": 80,
+            "ProblemaReportado": "Conectividad intermitente",
+            "Estado": "Pendiente",
+            "Tecnico": {
+                "IdTecnico": 35,
+                "NombreCompleto": "Victoria Ramírez Sosa",
+                "CorreoElectronico": "victoria.ramirez@example.com",
+                "Telefono": "5544332285"
+            },
+            "Equipo": [
+                {
+                    "IdEquipo": 35,
+                    "NumeroSerie": "SN2234567925",
+                    "EstadoInicial": "Problemas en el botón de encendido",
+                    "FechaRegistro": "2024-10-11T23:09:33.357",
+                    "ModeloEquipo": {
+                        "Marca": "Motorola",
+                        "Modelo": "Edge 20",
+                        "Tipo": "Teléfono móvil"
+                    }
+                }
+            ]
+        },
+        {
+            "IdTicket": 81,
+            "ProblemaReportado": "Pantalla dañada",
+            "Estado": "Finalizado",
+            "Tecnico": {
+                "IdTecnico": 36,
+                "NombreCompleto": "Ignacio Pineda Guerrero",
+                "CorreoElectronico": "ignacio.pineda@example.com",
+                "Telefono": "5544332286"
+            },
+            "Equipo": [
+                {
+                    "IdEquipo": 36,
+                    "NumeroSerie": "SN2234567926",
+                    "EstadoInicial": "Se reinicia solo",
+                    "FechaRegistro": "2024-10-11T23:09:33.357",
+                    "ModeloEquipo": {
+                        "Marca": "Nokia",
+                        "Modelo": "G50",
+                        "Tipo": "Teléfono móvil"
+                    }
+                }
+            ]
+        },
+        {
+            "IdTicket": 82,
+            "ProblemaReportado": "Problemas de actualización",
+            "Estado": "En Proceso",
+            "Tecnico": {
+                "IdTecnico": 37,
+                "NombreCompleto": "Silvia Vargas Molina",
+                "CorreoElectronico": "silvia.vargas@example.com",
+                "Telefono": "5544332287"
+            },
+            "Equipo": [
+                {
+                    "IdEquipo": 37,
+                    "NumeroSerie": "SN2234567927",
+                    "EstadoInicial": "Problemas de carga",
+                    "FechaRegistro": "2024-10-11T23:09:33.357",
+                    "ModeloEquipo": {
+                        "Marca": "Vizio",
+                        "Modelo": "P-Series Quantum",
+                        "Tipo": "Televisor"
+                    }
+                }
+            ]
+        },
+        {
+            "IdTicket": 83,
+            "ProblemaReportado": "Sin señal de red",
+            "Estado": "Finalizado",
+            "Tecnico": {
+                "IdTecnico": 38,
+                "NombreCompleto": "Jesús Navarro Núñez",
+                "CorreoElectronico": "jesus.navarro@example.com",
+                "Telefono": "5544332288"
+            },
+            "Equipo": [
+                {
+                    "IdEquipo": 38,
+                    "NumeroSerie": "SN2234567928",
+                    "EstadoInicial": "Sobrecalentamiento",
+                    "FechaRegistro": "2024-10-11T23:09:33.357",
+                    "ModeloEquipo": {
+                        "Marca": "OnePlus",
+                        "Modelo": "Nord 2",
+                        "Tipo": "Teléfono móvil"
+                    }
+                }
+            ]
+        },
+        {
+            "IdTicket": 84,
+            "ProblemaReportado": "Pantalla con manchas",
+            "Estado": "Pendiente",
+            "Tecnico": {
+                "IdTecnico": 39,
+                "NombreCompleto": "Marisol Herrera Pérez",
+                "CorreoElectronico": "marisol.herrera@example.com",
+                "Telefono": "5544332289"
+            },
+            "Equipo": [
+                {
+                    "IdEquipo": 39,
+                    "NumeroSerie": "SN2234567929",
+                    "EstadoInicial": "Sin conexión WiFi",
+                    "FechaRegistro": "2024-10-11T23:09:33.357",
+                    "ModeloEquipo": {
+                        "Marca": "Oppo",
+                        "Modelo": "Reno 6 Pro",
+                        "Tipo": "Teléfono móvil"
+                    }
+                }
+            ]
+        },
+        {
+            "IdTicket": 85,
+            "ProblemaReportado": "Cámara no funciona",
+            "Estado": "Pendiente",
+            "Tecnico": {
+                "IdTecnico": 40,
+                "NombreCompleto": "Adrián López González",
+                "CorreoElectronico": "adrian.lopez@example.com",
+                "Telefono": "5544332290"
+            },
+            "Equipo": [
+                {
+                    "IdEquipo": 40,
+                    "NumeroSerie": "SN2234567930",
+                    "EstadoInicial": "Daños en la carcasa",
+                    "FechaRegistro": "2024-10-11T23:09:33.357",
+                    "ModeloEquipo": {
+                        "Marca": "Realme",
+                        "Modelo": "GT Master Edition",
+                        "Tipo": "Teléfono móvil"
+                    }
+                }
+            ]
+        },
+        {
+            "IdTicket": 86,
+            "ProblemaReportado": "Pantalla rota",
+            "Estado": "Finalizado",
+            "Tecnico": {
+                "IdTecnico": 41,
+                "NombreCompleto": "Erika Santos Hernández",
+                "CorreoElectronico": "erika.santos@example.com",
+                "Telefono": "5544332291"
+            },
+            "Equipo": [
+                {
+                    "IdEquipo": 41,
+                    "NumeroSerie": "SN1234567931",
+                    "EstadoInicial": "Pantalla agrietada",
+                    "FechaRegistro": "2024-10-11T23:09:33.357",
+                    "ModeloEquipo": {
+                        "Marca": "Samsung",
+                        "Modelo": "Galaxy S22",
+                        "Tipo": "Teléfono móvil"
+                    }
+                }
+            ]
+        },
+        {
+            "IdTicket": 87,
+            "ProblemaReportado": "Problemas de conectividad Bluetooth",
+            "Estado": "Pendiente",
+            "Tecnico": {
+                "IdTecnico": 42,
+                "NombreCompleto": "Liliana Castillo Gómez",
+                "CorreoElectronico": "liliana.castillo@example.com",
+                "Telefono": "5544332292"
+            },
+            "Equipo": [
+                {
+                    "IdEquipo": 42,
+                    "NumeroSerie": "SN1234567932",
+                    "EstadoInicial": "No enciende",
+                    "FechaRegistro": "2024-10-11T23:09:33.357",
+                    "ModeloEquipo": {
+                        "Marca": "Apple",
+                        "Modelo": "iPhone 13",
+                        "Tipo": "Teléfono móvil"
+                    }
+                }
+            ]
+        },
+        {
+            "IdTicket": 88,
+            "ProblemaReportado": "Conector de audífonos dañado",
+            "Estado": "En Proceso",
+            "Tecnico": {
+                "IdTecnico": 43,
+                "NombreCompleto": "Jorge Gutiérrez Flores",
+                "CorreoElectronico": "jorge.gutierrez@example.com",
+                "Telefono": "5544332293"
+            },
+            "Equipo": [
+                {
+                    "IdEquipo": 43,
+                    "NumeroSerie": "SN1234567933",
+                    "EstadoInicial": "Problemas de batería",
+                    "FechaRegistro": "2024-10-11T23:09:33.357",
+                    "ModeloEquipo": {
+                        "Marca": "Dell",
+                        "Modelo": "Inspiron 15",
+                        "Tipo": "Computadora"
+                    }
+                }
+            ]
+        },
+        {
+            "IdTicket": 89,
+            "ProblemaReportado": "Falla en el teclado",
+            "Estado": "Pendiente",
+            "Tecnico": {
+                "IdTecnico": 44,
+                "NombreCompleto": "César Zavala Ruiz",
+                "CorreoElectronico": "cesar.zavala@example.com",
+                "Telefono": "5544332299"
+            },
+            "Equipo": [
+                {
+                    "IdEquipo": 44,
+                    "NumeroSerie": "SN1234567934",
+                    "EstadoInicial": "Rayones en carcasa",
+                    "FechaRegistro": "2024-10-11T23:09:33.357",
+                    "ModeloEquipo": {
+                        "Marca": "HP",
+                        "Modelo": "Omen 17",
+                        "Tipo": "Computadora"
+                    }
+                }
+            ]
+        },
+        {
+            "IdTicket": 90,
+            "ProblemaReportado": "Problemas de almacenamiento",
+            "Estado": "Finalizado",
+            "Tecnico": {
+                "IdTecnico": 45,
+                "NombreCompleto": "Ana Salazar Fernández",
+                "CorreoElectronico": "ana.salazar@example.com",
+                "Telefono": "5544332300"
+            },
+            "Equipo": [
+                {
+                    "IdEquipo": 45,
+                    "NumeroSerie": "SN1234567935",
+                    "EstadoInicial": "Altavoces dañados",
+                    "FechaRegistro": "2024-10-11T23:09:33.357",
+                    "ModeloEquipo": {
+                        "Marca": "Lenovo",
+                        "Modelo": "Legion 5",
+                        "Tipo": "Computadora"
+                    }
+                }
+            ]
+        },
+        {
+            "IdTicket": 91,
+            "ProblemaReportado": "Pantalla negra al encender",
+            "Estado": "Pendiente",
+            "Tecnico": {
+                "IdTecnico": 46,
+                "NombreCompleto": "Mario Vega Pérez",
+                "CorreoElectronico": "mario.vega@example.com",
+                "Telefono": "5544332301"
+            },
+            "Equipo": [
+                {
+                    "IdEquipo": 46,
+                    "NumeroSerie": "SN1234567936",
+                    "EstadoInicial": "Sin imagen en pantalla",
+                    "FechaRegistro": "2024-10-11T23:09:33.357",
+                    "ModeloEquipo": {
+                        "Marca": "Sony",
+                        "Modelo": "Bravia A80J",
+                        "Tipo": "Televisor"
+                    }
+                }
+            ]
+        },
+        {
+            "IdTicket": 92,
+            "ProblemaReportado": "Problemas de conexión",
+            "Estado": "Pendiente",
+            "Tecnico": {
+                "IdTecnico": 47,
+                "NombreCompleto": "Lucía Flores Sánchez",
+                "CorreoElectronico": "lucia.flores@example.com",
+                "Telefono": "5544332302"
+            },
+            "Equipo": [
+                {
+                    "IdEquipo": 47,
+                    "NumeroSerie": "SN1234567937",
+                    "EstadoInicial": "Conector de carga dañado",
+                    "FechaRegistro": "2024-10-11T23:09:33.357",
+                    "ModeloEquipo": {
+                        "Marca": "LG",
+                        "Modelo": "NanoCell 75",
+                        "Tipo": "Televisor"
+                    }
+                }
+            ]
+        },
+        {
+            "IdTicket": 93,
+            "ProblemaReportado": "Problemas de batería",
+            "Estado": "Finalizado",
+            "Tecnico": {
+                "IdTecnico": 48,
+                "NombreCompleto": "Rodrigo Campos Torres",
+                "CorreoElectronico": "rodrigo.campos@example.com",
+                "Telefono": "5544332303"
+            },
+            "Equipo": [
+                {
+                    "IdEquipo": 48,
+                    "NumeroSerie": "SN1234567938",
+                    "EstadoInicial": "Lento al encender",
+                    "FechaRegistro": "2024-10-11T23:09:33.357",
+                    "ModeloEquipo": {
+                        "Marca": "Xiaomi",
+                        "Modelo": "Redmi Note 10 Pro",
+                        "Tipo": "Teléfono móvil"
+                    }
+                }
+            ]
+        },
+        {
+            "IdTicket": 94,
+            "ProblemaReportado": "No enciende",
+            "Estado": "Pendiente",
+            "Tecnico": {
+                "IdTecnico": 49,
+                "NombreCompleto": "Claudia Mejía López",
+                "CorreoElectronico": "claudia.mejia@example.com",
+                "Telefono": "5544332304"
+            },
+            "Equipo": [
+                {
+                    "IdEquipo": 49,
+                    "NumeroSerie": "SN1234567939",
+                    "EstadoInicial": "Sin señal",
+                    "FechaRegistro": "2024-10-11T23:09:33.357",
+                    "ModeloEquipo": {
+                        "Marca": "Huawei",
+                        "Modelo": "Mate 40",
+                        "Tipo": "Teléfono móvil"
+                    }
+                }
+            ]
+        },
+        {
+            "IdTicket": 95,
+            "ProblemaReportado": "Problemas de pantalla",
+            "Estado": "En Proceso",
+            "Tecnico": {
+                "IdTecnico": 50,
+                "NombreCompleto": "Alberto Ortiz Ramírez",
+                "CorreoElectronico": "alberto.ortiz@example.com",
+                "Telefono": "5544332305"
+            },
+            "Equipo": [
+                {
+                    "IdEquipo": 50,
+                    "NumeroSerie": "SN1234567940",
+                    "EstadoInicial": "Pantalla rota",
+                    "FechaRegistro": "2024-10-11T23:09:33.357",
+                    "ModeloEquipo": {
+                        "Marca": "Microsoft",
+                        "Modelo": "Surface Pro 8",
+                        "Tipo": "Tablet"
+                    }
+                }
+            ]
+        }
+    ]
+);
