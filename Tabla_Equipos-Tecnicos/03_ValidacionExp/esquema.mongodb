@@ -1,0 +1,53 @@
+// Usar la base de datos
+use("db_esquema");
+
+db.createCollection("equipos", {
+    validator: {
+        $jsonSchema: {
+            bsonType: "object",
+            required: ["IdCliente", "IdModelo", "NumeroSerie", "EstadoInicial", "Accesorios"],
+            properties: {
+                IdEquipo: {
+                    bsonType: "int",
+                    description: "Identificador único del equipo, se genera automáticamente"
+                },
+                IdCliente: {
+                    bsonType: "int",
+                    description: "Identificador del cliente, no puede ser nulo"
+                },
+                IdModelo: {
+                    bsonType: "int",
+                    description: "Identificador del modelo, no puede ser nulo"
+                },
+                NumeroSerie: {
+                    bsonType: "string",
+                    description: "Número de serie del equipo, no puede ser nulo",
+                    pattern: "^[A-Z0-9]{4}-[A-Z0-9]{4}-[A-Z0-9]{4}$" // Formato exacto AAAA-BBBB-CCCC
+                },
+                EstadoInicial: {
+                    bsonType: "string",
+                    description: "Estado en el que llega el equipo",
+                    enum: ["Nuevo", "Usado", "Reparado", "Defectuoso"] // Solo estos valores son válidos
+                },
+                FechaRegistro: {
+                    bsonType: "date",
+                    description: "Fecha en la que se registra el equipo"
+                },
+                Accesorios: {
+                    bsonType: "array",
+                    minItems: 1,
+                    maxItems: 4,
+                    items: {
+                        bsonType: "string",
+                        pattern: "^[a-zA-Z0-9 ]+$", // Acepta solo letras, números y espacios
+                        description: "Accesorios permitidos: solo caracteres alfanuméricos y espacios"
+                    }
+                }
+            }
+        }
+    },
+    validationLevel: "strict" // Modo de validación estricto
+});
+
+// Crear índice único para NumeroSerie
+db.equipos.createIndex({ NumeroSerie: 1 }, { unique: true });

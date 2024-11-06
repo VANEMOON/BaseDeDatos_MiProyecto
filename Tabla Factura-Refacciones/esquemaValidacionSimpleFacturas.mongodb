@@ -1,0 +1,37 @@
+// Usar la base de datos
+use("db_esquema");
+
+// Crear la colección Facturas con validación
+db.createCollection("facturas", {
+    validator: {
+        $jsonSchema: {
+            bsonType: 'object',
+            title: 'Validador del objeto de facturas',
+            required: ['IdTicket', 'MontoTotal', 'FechaEmision', 'EstadoPago'],
+            properties: {
+                IdFactura: {
+                    bsonType: 'int',
+                    description: 'Identificador único de la factura, se genera automáticamente'
+                },
+                IdTicket: {
+                    bsonType: 'int',
+                    description: 'Identificador del ticket, no puede ser nulo y debe estar en la tabla TicketsReparacion'
+                },
+                MontoTotal: {
+                    bsonType: 'decimal',
+                    minimum: 50,
+                    description: 'Monto total de la factura, debe ser decimal y mayor o igual a 50'
+                },
+                FechaEmision: {
+                    bsonType: 'date',
+                    description: 'Fecha de emisión de la factura, valor por defecto es la fecha actual'
+                },
+                EstadoPago: {
+                    bsonType: 'string',
+                    enum: ['Pendiente', 'Pagado'],
+                    description: 'Estado de pago de la factura (Pendiente o Pagado)'
+                }
+            }
+        }
+    }
+});

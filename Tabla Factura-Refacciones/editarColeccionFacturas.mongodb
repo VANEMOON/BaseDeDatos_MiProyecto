@@ -1,0 +1,38 @@
+// Usar la base de datos
+use("db_esquema");
+
+// Modificar el esquema de la colección "facturas"
+db.runCommand({
+    collMod: 'facturas',
+    validator: {
+        $jsonSchema: {
+            bsonType: 'object',
+            required: ['IdTicket', 'MontoTotal', 'FechaEmision', 'EstadoPago'],
+            properties: {
+                IdFactura: {
+                    bsonType: 'int',
+                    description: 'Identificador único de la factura, se genera automáticamente'
+                },
+                IdTicket: {
+                    bsonType: 'int',
+                    description: 'Identificador del ticket relacionado, no puede ser nulo'
+                },
+                MontoTotal: {
+                    bsonType: 'decimal',
+                    minimum: 50,
+                    description: 'Monto total de la factura, debe ser decimal y no puede ser menor a 50'
+                },
+                FechaEmision: {
+                    bsonType: 'date',
+                    description: 'Fecha de emisión de la factura, valor por defecto es la fecha actual'
+                },
+                EstadoPago: {
+                    bsonType: 'string',
+                    enum: ['Pendiente', 'Pagado', 'Cancelado', 'En Proceso'], // Valores actualizados
+                    description: 'Estado de pago de la factura: Pendiente, Pagado, Cancelado, o En Proceso'
+                }
+            }
+        }
+    },
+    validationLevel: "strict"
+});
