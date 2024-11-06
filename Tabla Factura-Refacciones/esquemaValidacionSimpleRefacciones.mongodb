@@ -1,0 +1,34 @@
+// Usar la base de datos
+use("db_esquema");
+
+// Crear la colección Refacciones con validación
+db.createCollection("refacciones", {
+    validator: {
+        $jsonSchema: {
+            bsonType: 'object',
+            title: 'Validador del objeto de refacciones',
+            required: ['NombreRefaccion', 'CantidadDisponible', 'PrecioUnitario'],
+            properties: {
+                IdRefaccion: {
+                    bsonType: 'int',
+                    description: 'Identificador único de la refacción, se genera automáticamente'
+                },
+                NombreRefaccion: {
+                    bsonType: 'string',
+                    maxLength: 150,
+                    description: 'Nombre de la refacción, es obligatorio y tiene un máximo de 150 caracteres'
+                },
+                CantidadDisponible: {
+                    bsonType: 'int',
+                    minimum: 0,
+                    description: 'Cantidad disponible en inventario, debe ser un número entero no negativo'
+                },
+                PrecioUnitario: {
+                    bsonType: 'decimal',
+                    minimum: 0.01,
+                    description: 'Precio unitario de la refacción, debe ser decimal y mayor a 0'
+                }
+            }
+        }
+    }
+});
