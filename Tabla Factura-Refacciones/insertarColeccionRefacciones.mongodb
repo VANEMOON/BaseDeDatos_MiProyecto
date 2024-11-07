@@ -1,0 +1,7 @@
+use("db_esquema");
+
+db.refacciones.insertOne({
+    NombreRefaccion: "Bujía de Encendido", // Nombre con solo caracteres alfanuméricos y espacios, sin exceder los 150 caracteres
+    CantidadDisponible: 100,               // Número entero no negativo
+    PrecioUnitario: NumberDecimal("20.50")  // Valor decimal mayor a 0, cumple con el requisito de que no sea igual a 0
+});
