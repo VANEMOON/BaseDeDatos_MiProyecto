@@ -1,0 +1,8 @@
+use("db_esquema");
+
+db.facturas.insertOne({
+    IdTicket: 123,                      // IdTicket debe existir en la colección TicketsReparacion
+    MontoTotal: NumberDecimal("150.75"), // Monto mayor a 50
+    FechaEmision: new Date("2024-11-06"),// Fecha de emisión válida
+    EstadoPago: "Pendiente"              // Estado de pago válido (Pendiente o Pagado)
+});
