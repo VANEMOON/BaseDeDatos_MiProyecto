@@ -1,11 +1,12 @@
 // Usar la base de datos
 use("db_esquema");
 
-
+// Crear la colección Refacciones con todas las validaciones
 db.createCollection("refacciones", {
     validator: {
         $jsonSchema: {
             bsonType: "object",
+            title: "Validador del objeto de refacciones",
             required: ["NombreRefaccion", "CantidadDisponible", "PrecioUnitario"],
             properties: {
                 IdRefaccion: {
@@ -33,3 +34,6 @@ db.createCollection("refacciones", {
     },
     validationLevel: "strict"
 });
+
+// Crear índice único para IdRefaccion
+db.refacciones.createIndex({ IdRefaccion: 1 }, { unique: true });
