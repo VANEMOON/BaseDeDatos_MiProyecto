@@ -1,0 +1,32 @@
+use("db_usuarios")
+
+// Crear esquema de validación de usuarios con regex
+db.createCollection('usuarios', {
+    validator: {
+        $jsonSchema: {
+            bsonType: 'object',
+            title: 'Validación del objeto de usuarios',
+            required: ['email', 'contrasena', 'rol'],
+            properties: {
+                email: { 
+                    bsonType: 'string',
+                    description: 'Correo del usuario',
+                    pattern: "^[A-Za-z\\d.-]+@[A-Za-z\\d.-]+\\.[A-Za-z]{2,}$" // Regex para validar email
+                },
+                contrasena: { 
+                    bsonType: 'string',
+                    description: 'Clave del usuario entre 8 y 20 caracteres',
+                    pattern: "^.{8,20}$" // Regex para validar contraseña
+                },
+                rol: { enum: ['Admin', 'Guest', 'Users', 'Employee', 'Customer'] },
+                fecha_creacion: { bsonType: 'date' },
+                edad: { 
+                    bsonType: 'int',
+                    minimum: 18,
+                    maximum: 60
+                },
+                estado: { bsonType: 'bool' }
+            }
+        }
+    }
+});

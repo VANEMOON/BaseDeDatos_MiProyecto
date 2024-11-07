@@ -1,0 +1,43 @@
+use("db_usuarios")
+
+// Crear el esquema de usuarios con un ejemplo de documentos anidados
+db.createCollection('usuarios', {
+    validator: {
+        $jsonSchema: {
+            bsonType: 'object',
+            title: 'Validación del objeto de usuarios',
+            required: ['email', 'contrasena', 'rol'],
+            properties: {
+                email: { 
+                    bsonType: 'string',
+                    description: 'Correo del usuario',
+                },
+                contrasena: { 
+                    bsonType: 'string',
+                    description: 'Clave del usuario entre 8 y 20 caracteres',
+                },
+                rol: { enum: ['Admin', 'Guest', 'Users', 'Employee', 'Customer'] },
+                contactos: { // Ejemplo de un array de contactos
+                    bsonType: 'array',
+                    minItems: 1,
+                    maxItems: 5,
+                    items: {
+                        bsonType: 'object',
+                        required: ['nombre', 'telefono'],
+                        properties: {
+                            nombre: { bsonType: 'string' },
+                            telefono: { bsonType: 'string' }
+                        }
+                    }
+                },
+                fecha_creacion: { bsonType: 'date' },
+                edad: { 
+                    bsonType: 'int',
+                    minimum: 18,
+                    maximum: 60
+                },
+                estado: { bsonType: 'bool' }
+            }
+        }
+    }
+});

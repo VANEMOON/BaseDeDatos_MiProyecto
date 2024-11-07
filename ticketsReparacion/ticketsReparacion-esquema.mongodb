@@ -1,0 +1,71 @@
+use("db_esquema");
+
+db.createCollection("tickets_reparacion", {
+    validator: {
+        $jsonSchema: {
+            bsonType: "object",
+            required: ["IdTicket", "ProblemaReportado", "Estado", "Tecnico", "Equipo"],
+            properties: {
+                IdTicket: {
+                    bsonType: "int",
+                    description: "Identificador único del ticket de reparación"
+                },
+                ProblemaReportado: {
+                    bsonType: "string",
+                    description: "Descripción del problema reportado"
+                },
+                Estado: {
+                    bsonType: "string",
+                    description: "Estado actual del ticket de reparación"
+                },
+                Tecnico: {
+                    bsonType: "object",
+                    required: ["IdTecnico", "NombreCompleto", "CorreoElectronico", "Telefono"],
+                    properties: {
+                        IdTecnico: { bsonType: "int" },
+                        NombreCompleto: { bsonType: "string" },
+                        CorreoElectronico: { 
+                            bsonType: "string",
+                            pattern: "^[A-Za-z\\d.-]+@[A-Za-z\\d.-]+\\.[A-Za-z]{2,}$",
+                            description: "Correo electrónico del técnico"
+                        },
+                        Telefono: {
+                            bsonType: "string",
+                            description: "Teléfono de contacto del técnico"
+                        }
+                    }
+                },
+                Equipo: {
+                    bsonType: "array",
+                    items: {
+                        bsonType: "object",
+                        required: ["IdEquipo", "NumeroSerie", "EstadoInicial", "FechaRegistro", "ModeloEquipo"],
+                        properties: {
+                            IdEquipo: { bsonType: "int" },
+                            NumeroSerie: { bsonType: "string" },
+                            EstadoInicial: { bsonType: "string" },
+                            FechaRegistro: { bsonType: "string", description: "Fecha de registro en formato string" },
+                            ModeloEquipo: {
+                                bsonType: "object",
+                                required: ["Marca", "Modelo", "Tipo"],
+                                properties: {
+                                    Marca: { bsonType: "string" },
+                                    Modelo: { bsonType: "string" },
+                                    Tipo: { bsonType: "string" }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+});
+
+
+
+// Crear un índice para asegurar la unicidad del campo 'IdEquipo' en la colección 'tickets_reparacion'
+db.tickets_reparacion.createIndex(
+    { IdEquipo: 1 },
+    { unique: true }
+);

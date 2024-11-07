@@ -1,0 +1,14 @@
+use("db_usuarios")
+
+db.usuarios.insertOne({
+    email: 'ejemplo@gmail.com',
+    contrasena: 'contrasena123',
+    rol: 'Employee',
+    contactos: [
+        { nombre: 'Juan Pérez', telefono: '1234567890' },
+        { nombre: 'Ana Gómez', telefono: '0987654321' }
+    ],
+    fecha_creacion: new Date(),
+    edad: 30,
+    estado: true
+});

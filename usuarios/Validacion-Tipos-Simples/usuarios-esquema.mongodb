@@ -1,0 +1,32 @@
+use("db_usuarios")
+
+// Modificar el esquema de la colección usuarios
+db.runCommand({
+    collMod: 'usuarios',
+    validator: {
+        $jsonSchema: {
+            bsonType: 'object',
+            title: 'Validación del objeto de usuarios',
+            required: ['_id', 'email', 'contrasena'], // Campos requeridos
+            properties: {
+                _id: { bsonType: 'objectId' }, // Tipo de id
+                email: { 
+                    bsonType: 'string',
+                    description: 'Correo del usuario',
+                },
+                contrasena: { 
+                    bsonType: 'string',
+                    description: 'Clave del usuario entre 8 y 20 caracteres',
+                },
+                rol: { enum: ['Admin', 'Guest', 'Users', 'Employee', 'Customer'] }, // Valores permitidos para rol
+                fecha_creacion: { bsonType: 'date' },
+                edad: { 
+                    bsonType: 'int',
+                    minimum: 18,
+                    maximum: 60
+                },
+                estado: { bsonType: 'bool' }
+            }
+        }
+    }
+});
