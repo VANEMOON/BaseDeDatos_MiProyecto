@@ -1,0 +1,259 @@
+// Usar la base de datos
+use("db_esquema");
+
+db.Tecnicos.insertMany(
+    [
+        {
+            "idTecnico": 1,
+            "Nombre": "Guillermo",
+            "ApellidoPaterno": "Castillo",
+            "ApellidoMaterno": "Fernández",
+            "CorreoElectronico": "guillermo.castillo@example.com",
+            "Telefono": "5544332251",
+            "Especialidad": "Electrónica"
+        },
+        {
+            "idTecnico": 2,
+            "Nombre": "Nayeli",
+            "ApellidoPaterno": "Gómez",
+            "ApellidoMaterno": "Pérez",
+            "CorreoElectronico": "nayeli.gomez@example.com",
+            "Telefono": "5544332252",
+            "Especialidad": "Mecánica"
+        },
+        {
+            "idTecnico": 3,
+            "Nombre": "Sergio",
+            "ApellidoPaterno": "Hernández",
+            "ApellidoMaterno": "Santos",
+            "CorreoElectronico": "sergio.hernandez@example.com",
+            "Telefono": "5544332253",
+            "Especialidad": "Computadoras"
+        },
+        {
+            "idTecnico": 4,
+            "Nombre": "Gabriela",
+            "ApellidoPaterno": "Jiménez",
+            "ApellidoMaterno": "Ríos",
+            "CorreoElectronico": "gabriela.jimenez@example.com",
+            "Telefono": "5544332254",
+            "Especialidad": "Telefonía móvil"
+        },
+        {
+            "idTecnico": 5,
+            "Nombre": "Rafael",
+            "ApellidoPaterno": "Martínez",
+            "ApellidoMaterno": "López",
+            "CorreoElectronico": "rafael.martinez@example.com",
+            "Telefono": "5544332255",
+            "Especialidad": "Telecomunicaciones"
+        },
+        {
+            "idTecnico": 6,
+            "Nombre": "Andrea",
+            "ApellidoPaterno": "Mendoza",
+            "ApellidoMaterno": "González",
+            "CorreoElectronico": "andrea.mendoza@example.com",
+            "Telefono": "5544332256",
+            "Especialidad": "Electrónica"
+        },
+        {
+            "idTecnico": 7,
+            "Nombre": "Jorge",
+            "ApellidoPaterno": "Cruz",
+            "ApellidoMaterno": "Hernández",
+            "CorreoElectronico": "jorge.cruz@example.com",
+            "Telefono": "5544332257",
+            "Especialidad": "Mecánica"
+        },
+        {
+            "idTecnico": 8,
+            "Nombre": "Mónica",
+            "ApellidoPaterno": "López",
+            "ApellidoMaterno": "Pérez",
+            "CorreoElectronico": "monica.lopez@example.com",
+            "Telefono": "5544332258",
+            "Especialidad": "Computadoras"
+        },
+        {
+            "idTecnico": 9,
+            "Nombre": "Francisco",
+            "ApellidoPaterno": "Rodríguez",
+            "ApellidoMaterno": "Sánchez",
+            "CorreoElectronico": "francisco.rodriguez@example.com",
+            "Telefono": "5544332259",
+            "Especialidad": "Telefonía móvil"
+        },
+        {
+            "idTecnico": 10,
+            "Nombre": "Sandra",
+            "ApellidoPaterno": "García",
+            "ApellidoMaterno": "Torres",
+            "CorreoElectronico": "sandra.garcia@example.com",
+            "Telefono": "5544332260",
+            "Especialidad": "Telecomunicaciones"
+        },
+        {
+            "idTecnico": 11,
+            "Nombre": "Luis",
+            "ApellidoPaterno": "Álvarez",
+            "ApellidoMaterno": "Ramírez",
+            "CorreoElectronico": "luis.alvarez@example.com",
+            "Telefono": "5544332261",
+            "Especialidad": "Electrónica"
+        },
+        {
+            "idTecnico": 12,
+            "Nombre": "Laura",
+            "ApellidoPaterno": "Moreno",
+            "ApellidoMaterno": "Cruz",
+            "CorreoElectronico": "laura.moreno@example.com",
+            "Telefono": "5544332262",
+            "Especialidad": "Mecánica"
+        },
+        {
+            "idTecnico": 13,
+            "Nombre": "Carlos",
+            "ApellidoPaterno": "Sosa",
+            "ApellidoMaterno": "González",
+            "CorreoElectronico": "carlos.sosa@example.com",
+            "Telefono": "5544332263",
+            "Especialidad": "Computadoras"
+        },
+        {
+            "idTecnico": 14,
+            "Nombre": "Fernando",
+            "ApellidoPaterno": "Pérez",
+            "ApellidoMaterno": "Martínez",
+            "CorreoElectronico": "fernando.perez@example.com",
+            "Telefono": "5544332264",
+            "Especialidad": "Telefonía móvil"
+        },
+        {
+            "idTecnico": 15,
+            "Nombre": "Ricardo",
+            "ApellidoPaterno": "Vega",
+            "ApellidoMaterno": "Flores",
+            "CorreoElectronico": "ricardo.vega@example.com",
+            "Telefono": "5544332265",
+            "Especialidad": "Telecomunicaciones"
+        },
+        {
+            "idTecnico": 16,
+            "Nombre": "Isabel",
+            "ApellidoPaterno": "Ortiz",
+            "ApellidoMaterno": "Gutiérrez",
+            "CorreoElectronico": "isabel.ortiz@example.com",
+            "Telefono": "5544332266",
+            "Especialidad": "Electrónica"
+        },
+        {
+            "idTecnico": 17,
+            "Nombre": "Elena",
+            "ApellidoPaterno": "Núñez",
+            "ApellidoMaterno": "Morales",
+            "CorreoElectronico": "elena.nunez@example.com",
+            "Telefono": "5544332267",
+            "Especialidad": "Mecánica"
+        },
+        {
+            "idTecnico": 18,
+            "Nombre": "Óscar",
+            "ApellidoPaterno": "Lara",
+            "ApellidoMaterno": "Vargas",
+            "CorreoElectronico": "oscar.lara@example.com",
+            "Telefono": "5544332268",
+            "Especialidad": "Computadoras"
+        },
+        {
+            "idTecnico": 19,
+            "Nombre": "Patricia",
+            "ApellidoPaterno": "Díaz",
+            "ApellidoMaterno": "Méndez",
+            "CorreoElectronico": "patricia.diaz@example.com",
+            "Telefono": "5544332269",
+            "Especialidad": "Telefonía móvil"
+        },
+        {
+            "idTecnico": 20,
+            "Nombre": "Víctor",
+            "ApellidoPaterno": "Salinas",
+            "ApellidoMaterno": "Ramos",
+            "CorreoElectronico": "victor.salinas@example.com",
+            "Telefono": "5544332270",
+            "Especialidad": "Telecomunicaciones"
+        },
+        {
+            "idTecnico": 21,
+            "Nombre": "Iván",
+            "ApellidoPaterno": "Reyes",
+            "ApellidoMaterno": "Santos",
+            "CorreoElectronico": "ivan.reyes@example.com",
+            "Telefono": "5544332271",
+            "Especialidad": "Electrónica"
+        },
+        {
+            "idTecnico": 22,
+            "Nombre": "Luz",
+            "ApellidoPaterno": "Rojas",
+            "ApellidoMaterno": "Pérez",
+            "CorreoElectronico": "luz.rojas@example.com",
+            "Telefono": "5544332272",
+            "Especialidad": "Mecánica"
+        },
+        {
+            "idTecnico": 23,
+            "Nombre": "Daniela",
+            "ApellidoPaterno": "Vásquez",
+            "ApellidoMaterno": "López",
+            "CorreoElectronico": "daniela.vasquez@example.com",
+            "Telefono": "5544332273",
+            "Especialidad": "Computadoras"
+        },
+        {
+            "idTecnico": 24,
+            "Nombre": "Raúl",
+            "ApellidoPaterno": "Montoya",
+            "ApellidoMaterno": "Gómez",
+            "CorreoElectronico": "raul.montoya@example.com",
+            "Telefono": "5544332274",
+            "Especialidad": "Telefonía móvil"
+        },
+        {
+            "idTecnico": 25,
+            "Nombre": "Gustavo",
+            "ApellidoPaterno": "Herrera",
+            "ApellidoMaterno": "Cruz",
+            "CorreoElectronico": "gustavo.herrera@example.com",
+            "Telefono": "5544332275",
+            "Especialidad": "Telecomunicaciones"
+        },
+        {
+            "idTecnico": 26,
+            "Nombre": "Beatriz",
+            "ApellidoPaterno": "Sánchez",
+            "ApellidoMaterno": "Díaz",
+            "CorreoElectronico": "beatriz.sanchez@example.com",
+            "Telefono": "5544332276",
+            "Especialidad": "Electrónica"
+        },
+        {
+            "idTecnico": 27,
+            "Nombre": "Alejandro",
+            "ApellidoPaterno": "Pineda",
+            "ApellidoMaterno": "Morales",
+            "CorreoElectronico": "alejandro.pineda@example.com",
+            "Telefono": "5544332277",
+            "Especialidad": "Mecánica"
+        },
+        {
+            "idTecnico": 28,
+            "Nombre": "Rocío",
+            "ApellidoPaterno": "Morales",
+            "ApellidoMaterno": "Santos",
+            "CorreoElectronico": "rocio.morales@example.com",
+            "Telefono": "5544332278",
+            "Especialidad": "Computadoras"
+        }
+    ]
+)

@@ -1,0 +1,307 @@
+// Usar la base de datos
+use("db_esquema");
+
+db.Refacciones.insertMany(
+    [
+        {
+            "idRefaccion": 1,
+            "NombreRefaccion": "Pantalla Samsung Galaxy S22",
+            "CantidadDisponible": 9,
+            "PrecioUnitario": 260.00
+        },
+        {
+            "idRefaccion": 2,
+            "NombreRefaccion": "Batería iPhone 13",
+            "CantidadDisponible": 5,
+            "PrecioUnitario": 160.00
+        },
+        {
+            "idRefaccion": 3,
+            "NombreRefaccion": "Teclado Dell Inspiron 15",
+            "CantidadDisponible": 7,
+            "PrecioUnitario": 75.00
+        },
+        {
+            "idRefaccion": 4,
+            "NombreRefaccion": "Pantalla HP Omen 17",
+            "CantidadDisponible": 8,
+            "PrecioUnitario": 220.00
+        },
+        {
+            "idRefaccion": 5,
+            "NombreRefaccion": "Batería Lenovo Legion 5",
+            "CantidadDisponible": 12,
+            "PrecioUnitario": 190.00
+        },
+        {
+            "idRefaccion": 6,
+            "NombreRefaccion": "Altavoces Sony Bravia A80J",
+            "CantidadDisponible": 6,
+            "PrecioUnitario": 300.00
+        },
+        {
+            "idRefaccion": 7,
+            "NombreRefaccion": "Pantalla LG NanoCell 75",
+            "CantidadDisponible": 4,
+            "PrecioUnitario": 400.00
+        },
+        {
+            "idRefaccion": 8,
+            "NombreRefaccion": "Pantalla Xiaomi Redmi Note 10 Pro",
+            "CantidadDisponible": 9,
+            "PrecioUnitario": 230.00
+        },
+        {
+            "idRefaccion": 9,
+            "NombreRefaccion": "Pantalla Huawei Mate 40",
+            "CantidadDisponible": 8,
+            "PrecioUnitario": 220.00
+        },
+        {
+            "idRefaccion": 10,
+            "NombreRefaccion": "Teclado Microsoft Surface Pro 8",
+            "CantidadDisponible": 5,
+            "PrecioUnitario": 180.00
+        },
+        {
+            "idRefaccion": 11,
+            "NombreRefaccion": "Pantalla Acer Nitro 5",
+            "CantidadDisponible": 10,
+            "PrecioUnitario": 200.00
+        },
+        {
+            "idRefaccion": 12,
+            "NombreRefaccion": "Pantalla Asus TUF Gaming F15",
+            "CantidadDisponible": 4,
+            "PrecioUnitario": 250.00
+        },
+        {
+            "idRefaccion": 13,
+            "NombreRefaccion": "Batería Toshiba Dynabook Tecra",
+            "CantidadDisponible": 15,
+            "PrecioUnitario": 140.00
+        },
+        {
+            "idRefaccion": 14,
+            "NombreRefaccion": "Pantalla Google Pixel 6",
+            "CantidadDisponible": 6,
+            "PrecioUnitario": 250.00
+        },
+        {
+            "idRefaccion": 15,
+            "NombreRefaccion": "Pantalla Motorola Edge 20",
+            "CantidadDisponible": 8,
+            "PrecioUnitario": 170.00
+        },
+        {
+            "idRefaccion": 16,
+            "NombreRefaccion": "Pantalla Nokia G50",
+            "CantidadDisponible": 12,
+            "PrecioUnitario": 50.00
+        },
+        {
+            "idRefaccion": 17,
+            "NombreRefaccion": "Altavoces Vizio P-Series Quantum",
+            "CantidadDisponible": 7,
+            "PrecioUnitario": 300.00
+        },
+        {
+            "idRefaccion": 18,
+            "NombreRefaccion": "Pantalla OnePlus Nord 2",
+            "CantidadDisponible": 5,
+            "PrecioUnitario": 240.00
+        },
+        {
+            "idRefaccion": 19,
+            "NombreRefaccion": "Pantalla Oppo Reno 6 Pro",
+            "CantidadDisponible": 9,
+            "PrecioUnitario": 260.00
+        },
+        {
+            "idRefaccion": 20,
+            "NombreRefaccion": "Pantalla Realme GT Master Edition",
+            "CantidadDisponible": 10,
+            "PrecioUnitario": 220.00
+        },
+        {
+            "idRefaccion": 21,
+            "NombreRefaccion": "Pantalla Samsung Galaxy A52",
+            "CantidadDisponible": 10,
+            "PrecioUnitario": 260.00
+        },
+        {
+            "idRefaccion": 22,
+            "NombreRefaccion": "Batería iPhone 12 Mini",
+            "CantidadDisponible": 5,
+            "PrecioUnitario": 160.00
+        },
+        {
+            "idRefaccion": 23,
+            "NombreRefaccion": "Teclado Dell Latitude 9510",
+            "CantidadDisponible": 7,
+            "PrecioUnitario": 75.00
+        },
+        {
+            "idRefaccion": 24,
+            "NombreRefaccion": "Pantalla HP Elite Dragonfly",
+            "CantidadDisponible": 8,
+            "PrecioUnitario": 220.00
+        },
+        {
+            "idRefaccion": 25,
+            "NombreRefaccion": "Batería Lenovo ThinkPad X13",
+            "CantidadDisponible": 12,
+            "PrecioUnitario": 190.00
+        },
+        {
+            "idRefaccion": 26,
+            "NombreRefaccion": "Altavoces Sony Bravia Z9J",
+            "CantidadDisponible": 6,
+            "PrecioUnitario": 300.00
+        },
+        {
+            "idRefaccion": 27,
+            "NombreRefaccion": "Pantalla LG QNED MiniLED 99",
+            "CantidadDisponible": 4,
+            "PrecioUnitario": 400.00
+        },
+        {
+            "idRefaccion": 28,
+            "NombreRefaccion": "Pantalla Xiaomi Mi 11 Lite",
+            "CantidadDisponible": 9,
+            "PrecioUnitario": 230.00
+        },
+        {
+            "idRefaccion": 29,
+            "NombreRefaccion": "Pantalla Huawei P50 Pro",
+            "CantidadDisponible": 8,
+            "PrecioUnitario": 220.00
+        },
+        {
+            "idRefaccion": 30,
+            "NombreRefaccion": "Teclado Microsoft Surface Laptop 4",
+            "CantidadDisponible": 5,
+            "PrecioUnitario": 180.00
+        },
+        {
+            "idRefaccion": 31,
+            "NombreRefaccion": "Pantalla Acer Swift 3",
+            "CantidadDisponible": 10,
+            "PrecioUnitario": 200.00
+        },
+        {
+            "idRefaccion": 32,
+            "NombreRefaccion": "Pantalla Asus ZenBook 14",
+            "CantidadDisponible": 4,
+            "PrecioUnitario": 250.00
+        },
+        {
+            "idRefaccion": 33,
+            "NombreRefaccion": "Batería Toshiba Portégé X30L",
+            "CantidadDisponible": 15,
+            "PrecioUnitario": 140.00
+        },
+        {
+            "idRefaccion": 34,
+            "NombreRefaccion": "Pantalla Google Pixel 5a",
+            "CantidadDisponible": 6,
+            "PrecioUnitario": 250.00
+        },
+        {
+            "idRefaccion": 35,
+            "NombreRefaccion": "Pantalla Motorola Moto G60",
+            "CantidadDisponible": 8,
+            "PrecioUnitario": 170.00
+        },
+        {
+            "idRefaccion": 36,
+            "NombreRefaccion": "Pantalla Nokia X20",
+            "CantidadDisponible": 12,
+            "PrecioUnitario": 50.00
+        },
+        {
+            "idRefaccion": 37,
+            "NombreRefaccion": "Altavoces Vizio OLED 55-H1",
+            "CantidadDisponible": 7,
+            "PrecioUnitario": 300.00
+        },
+        {
+            "idRefaccion": 38,
+            "NombreRefaccion": "Pantalla OnePlus 9R",
+            "CantidadDisponible": 5,
+            "PrecioUnitario": 240.00
+        },
+        {
+            "idRefaccion": 39,
+            "NombreRefaccion": "Pantalla Oppo Find X2",
+            "CantidadDisponible": 9,
+            "PrecioUnitario": 260.00
+        },
+        {
+            "idRefaccion": 40,
+            "NombreRefaccion": "Pantalla Realme 8 Pro",
+            "CantidadDisponible": 10,
+            "PrecioUnitario": 220.00
+        },
+        {
+            "idRefaccion": 41,
+            "NombreRefaccion": "Pantalla Samsung Galaxy S20 FE",
+            "CantidadDisponible": 10,
+            "PrecioUnitario": 260.00
+        },
+        {
+            "idRefaccion": 42,
+            "NombreRefaccion": "Batería iPhone SE (2020)",
+            "CantidadDisponible": 5,
+            "PrecioUnitario": 160.00
+        },
+        {
+            "idRefaccion": 43,
+            "NombreRefaccion": "Teclado Dell Precision 5550",
+            "CantidadDisponible": 7,
+            "PrecioUnitario": 75.00
+        },
+        {
+            "idRefaccion": 44,
+            "NombreRefaccion": "Pantalla HP Spectre x360",
+            "CantidadDisponible": 8,
+            "PrecioUnitario": 220.00
+        },
+        {
+            "idRefaccion": 45,
+            "NombreRefaccion": "Batería Lenovo IdeaPad 5 Pro",
+            "CantidadDisponible": 12,
+            "PrecioUnitario": 190.00
+        },
+        {
+            "idRefaccion": 46,
+            "NombreRefaccion": "Altavoces Sony X950H",
+            "CantidadDisponible": 6,
+            "PrecioUnitario": 300.00
+        },
+        {
+            "idRefaccion": 47,
+            "NombreRefaccion": "Pantalla LG GX OLED",
+            "CantidadDisponible": 4,
+            "PrecioUnitario": 400.00
+        },
+        {
+            "idRefaccion": 48,
+            "NombreRefaccion": "Pantalla Xiaomi Mi Note 10",
+            "CantidadDisponible": 9,
+            "PrecioUnitario": 230.00
+        },
+        {
+            "idRefaccion": 49,
+            "NombreRefaccion": "Pantalla Huawei Mate X2",
+            "CantidadDisponible": 8,
+            "PrecioUnitario": 220.00
+        },
+        {
+            "idRefaccion": 50,
+            "NombreRefaccion": "Teclado Microsoft Surface Duo",
+            "CantidadDisponible": 5,
+            "PrecioUnitario": 180.00
+        }
+    ]
+)

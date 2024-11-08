@@ -1,0 +1,806 @@
+use("db_esquema");
+
+db.Equipos.insertMany(
+    [
+        {
+            "idEquipo": 1,
+            "idUsuario": 1,
+            "idModeloEquipo": 1,
+            "NumeroSerie": "SN1234567911",
+            "EstadoInicial": "Pantalla agrietada",
+            "FechaRegistro": "2024-11-08T11:12:00.800"
+        },
+        {
+            "idEquipo": 2,
+            "idUsuario": 2,
+            "idModeloEquipo": 2,
+            "NumeroSerie": "SN1234567912",
+            "EstadoInicial": "No enciende",
+            "FechaRegistro": "2024-11-08T11:12:00.800"
+        },
+        {
+            "idEquipo": 3,
+            "idUsuario": 3,
+            "idModeloEquipo": 3,
+            "NumeroSerie": "SN1234567913",
+            "EstadoInicial": "Problemas de batería",
+            "FechaRegistro": "2024-11-08T11:12:00.800"
+        },
+        {
+            "idEquipo": 4,
+            "idUsuario": 4,
+            "idModeloEquipo": 4,
+            "NumeroSerie": "SN1234567914",
+            "EstadoInicial": "Rayones en carcasa",
+            "FechaRegistro": "2024-11-08T11:12:00.800"
+        },
+        {
+            "idEquipo": 5,
+            "idUsuario": 5,
+            "idModeloEquipo": 5,
+            "NumeroSerie": "SN1234567915",
+            "EstadoInicial": "Altavoces dañados",
+            "FechaRegistro": "2024-11-08T11:12:00.800"
+        },
+        {
+            "idEquipo": 6,
+            "idUsuario": 6,
+            "idModeloEquipo": 6,
+            "NumeroSerie": "SN1234567916",
+            "EstadoInicial": "Sin imagen en pantalla",
+            "FechaRegistro": "2024-11-08T11:12:00.800"
+        },
+        {
+            "idEquipo": 7,
+            "idUsuario": 7,
+            "idModeloEquipo": 7,
+            "NumeroSerie": "SN1234567917",
+            "EstadoInicial": "Conector de carga dañado",
+            "FechaRegistro": "2024-11-08T11:12:00.800"
+        },
+        {
+            "idEquipo": 8,
+            "idUsuario": 8,
+            "idModeloEquipo": 8,
+            "NumeroSerie": "SN1234567918",
+            "EstadoInicial": "Lento al encender",
+            "FechaRegistro": "2024-11-08T11:12:00.800"
+        },
+        {
+            "idEquipo": 9,
+            "idUsuario": 9,
+            "idModeloEquipo": 9,
+            "NumeroSerie": "SN1234567919",
+            "EstadoInicial": "Sin señal",
+            "FechaRegistro": "2024-11-08T11:12:00.800"
+        },
+        {
+            "idEquipo": 10,
+            "idUsuario": 10,
+            "idModeloEquipo": 10,
+            "NumeroSerie": "SN1234567920",
+            "EstadoInicial": "Pantalla rota",
+            "FechaRegistro": "2024-11-08T11:12:00.800"
+        },
+        {
+            "idEquipo": 11,
+            "idUsuario": 11,
+            "idModeloEquipo": 11,
+            "NumeroSerie": "SN2234567911",
+            "EstadoInicial": "Sin problemas visibles",
+            "FechaRegistro": "2024-11-08T11:12:00.800"
+        },
+        {
+            "idEquipo": 12,
+            "idUsuario": 12,
+            "idModeloEquipo": 12,
+            "NumeroSerie": "SN2234567912",
+            "EstadoInicial": "Lento en aplicaciones",
+            "FechaRegistro": "2024-11-08T11:12:00.800"
+        },
+        {
+            "idEquipo": 13,
+            "idUsuario": 13,
+            "idModeloEquipo": 13,
+            "NumeroSerie": "SN2234567913",
+            "EstadoInicial": "Sin señal WiFi",
+            "FechaRegistro": "2024-11-08T11:12:00.800"
+        },
+        {
+            "idEquipo": 14,
+            "idUsuario": 14,
+            "idModeloEquipo": 14,
+            "NumeroSerie": "SN2234567914",
+            "EstadoInicial": "Altavoces distorsionados",
+            "FechaRegistro": "2024-11-08T11:12:00.800"
+        },
+        {
+            "idEquipo": 15,
+            "idUsuario": 15,
+            "idModeloEquipo": 15,
+            "NumeroSerie": "SN2234567915",
+            "EstadoInicial": "Problemas en el botón de encendido",
+            "FechaRegistro": "2024-11-08T11:12:00.800"
+        },
+        {
+            "idEquipo": 16,
+            "idUsuario": 16,
+            "idModeloEquipo": 16,
+            "NumeroSerie": "SN2234567916",
+            "EstadoInicial": "Se reinicia solo",
+            "FechaRegistro": "2024-11-08T11:12:00.800"
+        },
+        {
+            "idEquipo": 17,
+            "idUsuario": 17,
+            "idModeloEquipo": 17,
+            "NumeroSerie": "SN2234567917",
+            "EstadoInicial": "Problemas de carga",
+            "FechaRegistro": "2024-11-08T11:12:00.800"
+        },
+        {
+            "idEquipo": 18,
+            "idUsuario": 18,
+            "idModeloEquipo": 18,
+            "NumeroSerie": "SN2234567918",
+            "EstadoInicial": "Sobrecalentamiento",
+            "FechaRegistro": "2024-11-08T11:12:00.800"
+        },
+        {
+            "idEquipo": 19,
+            "idUsuario": 19,
+            "idModeloEquipo": 19,
+            "NumeroSerie": "SN2234567919",
+            "EstadoInicial": "Sin conexión WiFi",
+            "FechaRegistro": "2024-11-08T11:12:00.800"
+        },
+        {
+            "idEquipo": 20,
+            "idUsuario": 20,
+            "idModeloEquipo": 20,
+            "NumeroSerie": "SN2234567920",
+            "EstadoInicial": "Daños en la carcasa",
+            "FechaRegistro": "2024-11-08T11:12:00.800"
+        },
+        {
+            "idEquipo": 21,
+            "idUsuario": 1,
+            "idModeloEquipo": 1,
+            "NumeroSerie": "SN1234567921",
+            "EstadoInicial": "Pantalla rota",
+            "FechaRegistro": "2024-11-08T11:12:00.800"
+        },
+        {
+            "idEquipo": 22,
+            "idUsuario": 2,
+            "idModeloEquipo": 2,
+            "NumeroSerie": "SN1234567922",
+            "EstadoInicial": "No enciende",
+            "FechaRegistro": "2024-11-08T11:12:00.800"
+        },
+        {
+            "idEquipo": 23,
+            "idUsuario": 3,
+            "idModeloEquipo": 3,
+            "NumeroSerie": "SN1234567923",
+            "EstadoInicial": "Problemas de batería",
+            "FechaRegistro": "2024-11-08T11:12:00.800"
+        },
+        {
+            "idEquipo": 24,
+            "idUsuario": 4,
+            "idModeloEquipo": 4,
+            "NumeroSerie": "SN1234567924",
+            "EstadoInicial": "Rayones en carcasa",
+            "FechaRegistro": "2024-11-08T11:12:00.800"
+        },
+        {
+            "idEquipo": 25,
+            "idUsuario": 5,
+            "idModeloEquipo": 5,
+            "NumeroSerie": "SN1234567925",
+            "EstadoInicial": "Altavoces dañados",
+            "FechaRegistro": "2024-11-08T11:12:00.800"
+        },
+        {
+            "idEquipo": 26,
+            "idUsuario": 6,
+            "idModeloEquipo": 6,
+            "NumeroSerie": "SN1234567926",
+            "EstadoInicial": "Sin imagen en pantalla",
+            "FechaRegistro": "2024-11-08T11:12:00.800"
+        },
+        {
+            "idEquipo": 27,
+            "idUsuario": 7,
+            "idModeloEquipo": 7,
+            "NumeroSerie": "SN1234567927",
+            "EstadoInicial": "Conector de carga dañado",
+            "FechaRegistro": "2024-11-08T11:12:00.800"
+        },
+        {
+            "idEquipo": 28,
+            "idUsuario": 8,
+            "idModeloEquipo": 8,
+            "NumeroSerie": "SN1234567928",
+            "EstadoInicial": "Lento al encender",
+            "FechaRegistro": "2024-11-08T11:12:00.800"
+        },
+        {
+            "idEquipo": 29,
+            "idUsuario": 9,
+            "idModeloEquipo": 9,
+            "NumeroSerie": "SN1234567929",
+            "EstadoInicial": "Sin señal",
+            "FechaRegistro": "2024-11-08T11:12:00.800"
+        },
+        {
+            "idEquipo": 30,
+            "idUsuario": 10,
+            "idModeloEquipo": 10,
+            "NumeroSerie": "SN1234567930",
+            "EstadoInicial": "Pantalla rota",
+            "FechaRegistro": "2024-11-08T11:12:00.800"
+        },
+        {
+            "idEquipo": 31,
+            "idUsuario": 11,
+            "idModeloEquipo": 11,
+            "NumeroSerie": "SN2234567921",
+            "EstadoInicial": "Sin problemas visibles",
+            "FechaRegistro": "2024-11-08T11:12:00.800"
+        },
+        {
+            "idEquipo": 32,
+            "idUsuario": 12,
+            "idModeloEquipo": 12,
+            "NumeroSerie": "SN2234567922",
+            "EstadoInicial": "Lento en aplicaciones",
+            "FechaRegistro": "2024-11-08T11:12:00.800"
+        },
+        {
+            "idEquipo": 33,
+            "idUsuario": 13,
+            "idModeloEquipo": 13,
+            "NumeroSerie": "SN2234567923",
+            "EstadoInicial": "Sin señal WiFi",
+            "FechaRegistro": "2024-11-08T11:12:00.800"
+        },
+        {
+            "idEquipo": 34,
+            "idUsuario": 14,
+            "idModeloEquipo": 14,
+            "NumeroSerie": "SN2234567924",
+            "EstadoInicial": "Altavoces distorsionados",
+            "FechaRegistro": "2024-11-08T11:12:00.800"
+        },
+        {
+            "idEquipo": 35,
+            "idUsuario": 15,
+            "idModeloEquipo": 15,
+            "NumeroSerie": "SN2234567925",
+            "EstadoInicial": "Problemas en el botón de encendido",
+            "FechaRegistro": "2024-11-08T11:12:00.800"
+        },
+        {
+            "idEquipo": 36,
+            "idUsuario": 16,
+            "idModeloEquipo": 16,
+            "NumeroSerie": "SN2234567926",
+            "EstadoInicial": "Se reinicia solo",
+            "FechaRegistro": "2024-11-08T11:12:00.800"
+        },
+        {
+            "idEquipo": 37,
+            "idUsuario": 17,
+            "idModeloEquipo": 17,
+            "NumeroSerie": "SN2234567927",
+            "EstadoInicial": "Problemas de carga",
+            "FechaRegistro": "2024-11-08T11:12:00.800"
+        },
+        {
+            "idEquipo": 38,
+            "idUsuario": 18,
+            "idModeloEquipo": 18,
+            "NumeroSerie": "SN2234567928",
+            "EstadoInicial": "Sobrecalentamiento",
+            "FechaRegistro": "2024-11-08T11:12:00.800"
+        },
+        {
+            "idEquipo": 39,
+            "idUsuario": 19,
+            "idModeloEquipo": 19,
+            "NumeroSerie": "SN2234567929",
+            "EstadoInicial": "Sin conexión WiFi",
+            "FechaRegistro": "2024-11-08T11:12:00.800"
+        },
+        {
+            "idEquipo": 40,
+            "idUsuario": 20,
+            "idModeloEquipo": 20,
+            "NumeroSerie": "SN2234567930",
+            "EstadoInicial": "Daños en la carcasa",
+            "FechaRegistro": "2024-11-08T11:12:00.800"
+        },
+        {
+            "idEquipo": 41,
+            "idUsuario": 1,
+            "idModeloEquipo": 1,
+            "NumeroSerie": "SN1234567931",
+            "EstadoInicial": "Pantalla agrietada",
+            "FechaRegistro": "2024-11-08T11:12:00.800"
+        },
+        {
+            "idEquipo": 42,
+            "idUsuario": 2,
+            "idModeloEquipo": 2,
+            "NumeroSerie": "SN1234567932",
+            "EstadoInicial": "No enciende",
+            "FechaRegistro": "2024-11-08T11:12:00.800"
+        },
+        {
+            "idEquipo": 43,
+            "idUsuario": 3,
+            "idModeloEquipo": 3,
+            "NumeroSerie": "SN1234567933",
+            "EstadoInicial": "Problemas de batería",
+            "FechaRegistro": "2024-11-08T11:12:00.800"
+        },
+        {
+            "idEquipo": 44,
+            "idUsuario": 4,
+            "idModeloEquipo": 4,
+            "NumeroSerie": "SN1234567934",
+            "EstadoInicial": "Rayones en carcasa",
+            "FechaRegistro": "2024-11-08T11:12:00.800"
+        },
+        {
+            "idEquipo": 45,
+            "idUsuario": 5,
+            "idModeloEquipo": 5,
+            "NumeroSerie": "SN1234567935",
+            "EstadoInicial": "Altavoces dañados",
+            "FechaRegistro": "2024-11-08T11:12:00.800"
+        },
+        {
+            "idEquipo": 46,
+            "idUsuario": 6,
+            "idModeloEquipo": 6,
+            "NumeroSerie": "SN1234567936",
+            "EstadoInicial": "Sin imagen en pantalla",
+            "FechaRegistro": "2024-11-08T11:12:00.800"
+        },
+        {
+            "idEquipo": 47,
+            "idUsuario": 7,
+            "idModeloEquipo": 7,
+            "NumeroSerie": "SN1234567937",
+            "EstadoInicial": "Conector de carga dañado",
+            "FechaRegistro": "2024-11-08T11:12:00.800"
+        },
+        {
+            "idEquipo": 48,
+            "idUsuario": 8,
+            "idModeloEquipo": 8,
+            "NumeroSerie": "SN1234567938",
+            "EstadoInicial": "Lento al encender",
+            "FechaRegistro": "2024-11-08T11:12:00.800"
+        },
+        {
+            "idEquipo": 49,
+            "idUsuario": 9,
+            "idModeloEquipo": 9,
+            "NumeroSerie": "SN1234567939",
+            "EstadoInicial": "Sin señal",
+            "FechaRegistro": "2024-11-08T11:12:00.800"
+        },
+        {
+            "idEquipo": 50,
+            "idUsuario": 10,
+            "idModeloEquipo": 10,
+            "NumeroSerie": "SN1234567940",
+            "EstadoInicial": "Pantalla rota",
+            "FechaRegistro": "2024-11-08T11:12:00.800"
+        },
+        {
+            "idEquipo": 51,
+            "idUsuario": 15,
+            "idModeloEquipo": 15,
+            "NumeroSerie": "SN1234567941",
+            "EstadoInicial": "Problemas en el botón de volumen",
+            "FechaRegistro": "2024-11-08T11:12:00.800"
+        },
+        {
+            "idEquipo": 52,
+            "idUsuario": 16,
+            "idModeloEquipo": 16,
+            "NumeroSerie": "SN1234567942",
+            "EstadoInicial": "Sobrecalentamiento frecuente",
+            "FechaRegistro": "2024-11-08T11:12:00.800"
+        },
+        {
+            "idEquipo": 53,
+            "idUsuario": 17,
+            "idModeloEquipo": 17,
+            "NumeroSerie": "SN1234567943",
+            "EstadoInicial": "Sin respuesta táctil",
+            "FechaRegistro": "2024-11-08T11:12:00.800"
+        },
+        {
+            "idEquipo": 54,
+            "idUsuario": 18,
+            "idModeloEquipo": 18,
+            "NumeroSerie": "SN1234567944",
+            "EstadoInicial": "Error en cámara frontal",
+            "FechaRegistro": "2024-11-08T11:12:00.800"
+        },
+        {
+            "idEquipo": 55,
+            "idUsuario": 19,
+            "idModeloEquipo": 19,
+            "NumeroSerie": "SN1234567945",
+            "EstadoInicial": "Problema con Bluetooth",
+            "FechaRegistro": "2024-11-08T11:12:00.800"
+        },
+        {
+            "idEquipo": 56,
+            "idUsuario": 20,
+            "idModeloEquipo": 20,
+            "NumeroSerie": "SN1234567946",
+            "EstadoInicial": "Pantalla parpadeante",
+            "FechaRegistro": "2024-11-08T11:12:00.800"
+        },
+        {
+            "idEquipo": 57,
+            "idUsuario": 11,
+            "idModeloEquipo": 11,
+            "NumeroSerie": "SN2234567931",
+            "EstadoInicial": "Sin problemas visibles",
+            "FechaRegistro": "2024-11-08T11:12:00.800"
+        },
+        {
+            "idEquipo": 58,
+            "idUsuario": 12,
+            "idModeloEquipo": 12,
+            "NumeroSerie": "SN2234567932",
+            "EstadoInicial": "Aplicaciones se cierran solas",
+            "FechaRegistro": "2024-11-08T11:12:00.800"
+        },
+        {
+            "idEquipo": 59,
+            "idUsuario": 13,
+            "idModeloEquipo": 13,
+            "NumeroSerie": "SN2234567933",
+            "EstadoInicial": "Conector de auriculares dañado",
+            "FechaRegistro": "2024-11-08T11:12:00.800"
+        },
+        {
+            "idEquipo": 60,
+            "idUsuario": 14,
+            "idModeloEquipo": 14,
+            "NumeroSerie": "SN2234567934",
+            "EstadoInicial": "Batería no carga",
+            "FechaRegistro": "2024-11-08T11:12:00.800"
+        },
+        {
+            "idEquipo": 61,
+            "idUsuario": 15,
+            "idModeloEquipo": 15,
+            "NumeroSerie": "SN2234567935",
+            "EstadoInicial": "Altavoces con ruido",
+            "FechaRegistro": "2024-11-08T11:12:00.800"
+        },
+        {
+            "idEquipo": 62,
+            "idUsuario": 16,
+            "idModeloEquipo": 16,
+            "NumeroSerie": "SN2234567936",
+            "EstadoInicial": "Pantalla agrietada",
+            "FechaRegistro": "2024-11-08T11:12:00.800"
+        },
+        {
+            "idEquipo": 63,
+            "idUsuario": 17,
+            "idModeloEquipo": 17,
+            "NumeroSerie": "SN2234567937",
+            "EstadoInicial": "No enciende",
+            "FechaRegistro": "2024-11-08T11:12:00.800"
+        },
+        {
+            "idEquipo": 64,
+            "idUsuario": 18,
+            "idModeloEquipo": 18,
+            "NumeroSerie": "SN2234567938",
+            "EstadoInicial": "Problemas de batería",
+            "FechaRegistro": "2024-11-08T11:12:00.800"
+        },
+        {
+            "idEquipo": 65,
+            "idUsuario": 19,
+            "idModeloEquipo": 19,
+            "NumeroSerie": "SN2234567939",
+            "EstadoInicial": "Rayones en carcasa",
+            "FechaRegistro": "2024-11-08T11:12:00.800"
+        },
+        {
+            "idEquipo": 66,
+            "idUsuario": 20,
+            "idModeloEquipo": 20,
+            "NumeroSerie": "SN2234567940",
+            "EstadoInicial": "Altavoces dañados",
+            "FechaRegistro": "2024-11-08T11:12:00.800"
+        },
+        {
+            "idEquipo": 67,
+            "idUsuario": 1,
+            "idModeloEquipo": 1,
+            "NumeroSerie": "SN1234567947",
+            "EstadoInicial": "Sin imagen en pantalla",
+            "FechaRegistro": "2024-11-08T11:12:00.800"
+        },
+        {
+            "idEquipo": 68,
+            "idUsuario": 2,
+            "idModeloEquipo": 2,
+            "NumeroSerie": "SN1234567948",
+            "EstadoInicial": "Conector de carga dañado",
+            "FechaRegistro": "2024-11-08T11:12:00.800"
+        },
+        {
+            "idEquipo": 69,
+            "idUsuario": 3,
+            "idModeloEquipo": 3,
+            "NumeroSerie": "SN1234567949",
+            "EstadoInicial": "Lento al encender",
+            "FechaRegistro": "2024-11-08T11:12:00.800"
+        },
+        {
+            "idEquipo": 70,
+            "idUsuario": 4,
+            "idModeloEquipo": 4,
+            "NumeroSerie": "SN1234567950",
+            "EstadoInicial": "Sin señal",
+            "FechaRegistro": "2024-11-08T11:12:00.800"
+        },
+        {
+            "idEquipo": 71,
+            "idUsuario": 5,
+            "idModeloEquipo": 5,
+            "NumeroSerie": "SN1234567951",
+            "EstadoInicial": "Pantalla rota",
+            "FechaRegistro": "2024-11-08T11:12:00.800"
+        },
+        {
+            "idEquipo": 72,
+            "idUsuario": 6,
+            "idModeloEquipo": 6,
+            "NumeroSerie": "SN2234567941",
+            "EstadoInicial": "Sin problemas visibles",
+            "FechaRegistro": "2024-11-08T11:12:00.800"
+        },
+        {
+            "idEquipo": 73,
+            "idUsuario": 7,
+            "idModeloEquipo": 7,
+            "NumeroSerie": "SN2234567942",
+            "EstadoInicial": "Lento en aplicaciones",
+            "FechaRegistro": "2024-11-08T11:12:00.800"
+        },
+        {
+            "idEquipo": 74,
+            "idUsuario": 8,
+            "idModeloEquipo": 8,
+            "NumeroSerie": "SN2234567943",
+            "EstadoInicial": "Sin señal WiFi",
+            "FechaRegistro": "2024-11-08T11:12:00.800"
+        },
+        {
+            "idEquipo": 75,
+            "idUsuario": 9,
+            "idModeloEquipo": 9,
+            "NumeroSerie": "SN2234567944",
+            "EstadoInicial": "Altavoces distorsionados",
+            "FechaRegistro": "2024-11-08T11:12:00.800"
+        },
+        {
+            "idEquipo": 76,
+            "idUsuario": 10,
+            "idModeloEquipo": 10,
+            "NumeroSerie": "SN2234567945",
+            "EstadoInicial": "Problemas en el botón de encendido",
+            "FechaRegistro": "2024-11-08T11:12:00.800"
+        },
+        {
+            "idEquipo": 77,
+            "idUsuario": 11,
+            "idModeloEquipo": 11,
+            "NumeroSerie": "SN2234567946",
+            "EstadoInicial": "Se reinicia solo",
+            "FechaRegistro": "2024-11-08T11:12:00.800"
+        },
+        {
+            "idEquipo": 78,
+            "idUsuario": 12,
+            "idModeloEquipo": 12,
+            "NumeroSerie": "SN2234567947",
+            "EstadoInicial": "Problemas de carga",
+            "FechaRegistro": "2024-11-08T11:12:00.800"
+        },
+        {
+            "idEquipo": 79,
+            "idUsuario": 13,
+            "idModeloEquipo": 13,
+            "NumeroSerie": "SN2234567948",
+            "EstadoInicial": "Sobrecalentamiento",
+            "FechaRegistro": "2024-11-08T11:12:00.800"
+        },
+        {
+            "idEquipo": 80,
+            "idUsuario": 14,
+            "idModeloEquipo": 14,
+            "NumeroSerie": "SN2234567949",
+            "EstadoInicial": "Sin conexión WiFi",
+            "FechaRegistro": "2024-11-08T11:12:00.800"
+        },
+        {
+            "idEquipo": 81,
+            "idUsuario": 15,
+            "idModeloEquipo": 15,
+            "NumeroSerie": "SN2234567950",
+            "EstadoInicial": "Daños en la carcasa",
+            "FechaRegistro": "2024-11-08T11:12:00.800"
+        },
+        {
+            "idEquipo": 82,
+            "idUsuario": 16,
+            "idModeloEquipo": 16,
+            "NumeroSerie": "SN1234567952",
+            "EstadoInicial": "Problemas en el botón de volumen",
+            "FechaRegistro": "2024-11-08T11:12:00.800"
+        },
+        {
+            "idEquipo": 83,
+            "idUsuario": 17,
+            "idModeloEquipo": 17,
+            "NumeroSerie": "SN1234567953",
+            "EstadoInicial": "Sobrecalentamiento frecuente",
+            "FechaRegistro": "2024-11-08T11:12:00.800"
+        },
+        {
+            "idEquipo": 84,
+            "idUsuario": 18,
+            "idModeloEquipo": 18,
+            "NumeroSerie": "SN1234567954",
+            "EstadoInicial": "Sin respuesta táctil",
+            "FechaRegistro": "2024-11-08T11:12:00.800"
+        },
+        {
+            "idEquipo": 85,
+            "idUsuario": 19,
+            "idModeloEquipo": 19,
+            "NumeroSerie": "SN1234567955",
+            "EstadoInicial": "Error en cámara frontal",
+            "FechaRegistro": "2024-11-08T11:12:00.800"
+        },
+        {
+            "idEquipo": 86,
+            "idUsuario": 20,
+            "idModeloEquipo": 20,
+            "NumeroSerie": "SN1234567956",
+            "EstadoInicial": "Problema con Bluetooth",
+            "FechaRegistro": "2024-11-08T11:12:00.800"
+        },
+        {
+            "idEquipo": 87,
+            "idUsuario": 11,
+            "idModeloEquipo": 11,
+            "NumeroSerie": "SN2234567951",
+            "EstadoInicial": "Pantalla parpadeante",
+            "FechaRegistro": "2024-11-08T11:12:00.800"
+        },
+        {
+            "idEquipo": 88,
+            "idUsuario": 12,
+            "idModeloEquipo": 12,
+            "NumeroSerie": "SN2234567952",
+            "EstadoInicial": "Aplicaciones se cierran solas",
+            "FechaRegistro": "2024-11-08T11:12:00.800"
+        },
+        {
+            "idEquipo": 89,
+            "idUsuario": 13,
+            "idModeloEquipo": 13,
+            "NumeroSerie": "SN2234567953",
+            "EstadoInicial": "Conector de auriculares dañado",
+            "FechaRegistro": "2024-11-08T11:12:00.800"
+        },
+        {
+            "idEquipo": 90,
+            "idUsuario": 14,
+            "idModeloEquipo": 14,
+            "NumeroSerie": "SN2234567954",
+            "EstadoInicial": "Batería no carga",
+            "FechaRegistro": "2024-11-08T11:12:00.800"
+        },
+        {
+            "idEquipo": 91,
+            "idUsuario": 15,
+            "idModeloEquipo": 15,
+            "NumeroSerie": "SN2234567955",
+            "EstadoInicial": "Altavoces con ruido",
+            "FechaRegistro": "2024-11-08T11:12:00.800"
+        },
+        {
+            "idEquipo": 92,
+            "idUsuario": 16,
+            "idModeloEquipo": 16,
+            "NumeroSerie": "SN2234567956",
+            "EstadoInicial": "Pantalla agrietada",
+            "FechaRegistro": "2024-11-08T11:12:00.800"
+        },
+        {
+            "idEquipo": 93,
+            "idUsuario": 17,
+            "idModeloEquipo": 17,
+            "NumeroSerie": "SN2234567957",
+            "EstadoInicial": "No enciende",
+            "FechaRegistro": "2024-11-08T11:12:00.800"
+        },
+        {
+            "idEquipo": 94,
+            "idUsuario": 18,
+            "idModeloEquipo": 18,
+            "NumeroSerie": "SN2234567958",
+            "EstadoInicial": "Problemas de batería",
+            "FechaRegistro": "2024-11-08T11:12:00.800"
+        },
+        {
+            "idEquipo": 95,
+            "idUsuario": 19,
+            "idModeloEquipo": 19,
+            "NumeroSerie": "SN2234567959",
+            "EstadoInicial": "Rayones en carcasa",
+            "FechaRegistro": "2024-11-08T11:12:00.800"
+        },
+        {
+            "idEquipo": 96,
+            "idUsuario": 20,
+            "idModeloEquipo": 20,
+            "NumeroSerie": "SN2234567960",
+            "EstadoInicial": "Altavoces dañados",
+            "FechaRegistro": "2024-11-08T11:12:00.800"
+        },
+        {
+            "idEquipo": 97,
+            "idUsuario": 1,
+            "idModeloEquipo": 1,
+            "NumeroSerie": "SN1234567961",
+            "EstadoInicial": "Sin imagen en pantalla",
+            "FechaRegistro": "2024-11-08T11:12:00.800"
+        },
+        {
+            "idEquipo": 98,
+            "idUsuario": 2,
+            "idModeloEquipo": 2,
+            "NumeroSerie": "SN1234567962",
+            "EstadoInicial": "Conector de carga dañado",
+            "FechaRegistro": "2024-11-08T11:12:00.800"
+        },
+        {
+            "idEquipo": 99,
+            "idUsuario": 3,
+            "idModeloEquipo": 3,
+            "NumeroSerie": "SN1234567963",
+            "EstadoInicial": "Lento al encender",
+            "FechaRegistro": "2024-11-08T11:12:00.800"
+        },
+        {
+            "idEquipo": 100,
+            "idUsuario": 4,
+            "idModeloEquipo": 4,
+            "NumeroSerie": "SN1234567964",
+            "EstadoInicial": "Sin señal",
+            "FechaRegistro": "2024-11-08T11:12:00.800"
+        }
+    ]
+)
