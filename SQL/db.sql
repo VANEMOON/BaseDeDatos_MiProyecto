@@ -6,13 +6,13 @@
 
 
 -- Creación de la base de datos
-create database Proyecto;
+create database Proyecto2;
 
-use Proyecto;
+use Proyecto2;
 
 -- Tabla de Clientes
 CREATE TABLE Usuarios (
-    IdUsuario INT PRIMARY KEY,
+    idUsuario INT PRIMARY KEY,
     Nombre NVARCHAR(100) NOT NULL,
     ApellidoPaterno NVARCHAR(100) NOT NULL,
     ApellidoMaterno NVARCHAR(100),
@@ -24,7 +24,7 @@ GO
 
 -- Tabla de Técnicos
 CREATE TABLE Tecnicos (
-    IdTecnico INT PRIMARY KEY,
+    idTecnico INT PRIMARY KEY,
     Nombre NVARCHAR(100) NOT NULL,
     ApellidoPaterno NVARCHAR(100) NOT NULL,
     ApellidoMaterno NVARCHAR(100),
@@ -36,7 +36,7 @@ GO
 
 -- Tabla de Modelos de Equipos
 CREATE TABLE ModelosEquipos (
-    IdModelo INT PRIMARY KEY,
+    idModeloEquipo INT PRIMARY KEY,
     Marca NVARCHAR(100) NOT NULL,
     Modelo NVARCHAR(100) NOT NULL,
     Tipo NVARCHAR(100) NOT NULL -- Ej: Teléfono móvil, Computadora, Tablet
@@ -45,22 +45,22 @@ GO
 
 -- Tabla de Equipos
 CREATE TABLE Equipos (
-    IdEquipo INT PRIMARY KEY,
-    IdUsuarios INT NOT NULL,
-    IdModelo INT NOT NULL,
+    idEquipo INT PRIMARY KEY,
+    idUsuario INT NOT NULL,
+    idModeloEquipo INT NOT NULL,
     NumeroSerie NVARCHAR(100) NOT NULL,
     EstadoInicial NVARCHAR(255), -- Estado en el que llega el equipo (daños, condiciones generales)
     FechaRegistro DATETIME DEFAULT GETDATE(),
-    CONSTRAINT FK_Equipos_Clientes FOREIGN KEY (IdUsuarios) REFERENCES Usuarios(IdUsuario),
-    CONSTRAINT FK_Equipos_Modelos FOREIGN KEY (IdModelo) REFERENCES ModelosEquipos(IdModelo)
+    CONSTRAINT FK_Equipos_Clientes FOREIGN KEY (idUsuario) REFERENCES Usuarios(IdUsuario),
+    CONSTRAINT FK_Equipos_Modelos FOREIGN KEY (idModeloEquipo) REFERENCES ModelosEquipos(idModeloEquipo)
 );
 GO
 
 -- Tabla de Tickets de Reparación
 CREATE TABLE TicketsReparacion (
-    IdTicket INT PRIMARY KEY,
-    IdEquipo INT NOT NULL,
-    IdTecnico INT NULL, -- Se asignará más tarde, puede ser nulo al inicio
+    idTicketReparacion INT PRIMARY KEY,
+    idEquipo INT NOT NULL,
+    idTecnico INT NULL, -- Se asignará más tarde, puede ser nulo al inicio
     ProblemaReportado NVARCHAR(255) NOT NULL,
     Estado NVARCHAR(50) DEFAULT 'Pendiente', -- Ej: Pendiente, En Proceso, Finalizado
     FechaCreacion DATETIME DEFAULT GETDATE(),
@@ -72,7 +72,7 @@ GO
 
 -- Tabla de Refacciones (para inventario)
 CREATE TABLE Refacciones (
-    IdRefaccion INT PRIMARY KEY,
+    idRefaccion INT PRIMARY KEY,
     NombreRefaccion NVARCHAR(150) NOT NULL,
     CantidadDisponible INT NOT NULL,
     PrecioUnitario DECIMAL(10, 2) NOT NULL
@@ -81,23 +81,23 @@ GO
 
 -- Tabla de Detalles de Reparación (Relaciona refacciones usadas con tickets)
 CREATE TABLE DetallesReparacion (
-    IdDetalle INT PRIMARY KEY,
-    IdTicket INT NOT NULL,
-    IdRefaccion INT NOT NULL,
+    idDetalleReparacion INT PRIMARY KEY,
+    idTicketReparacion INT NOT NULL,
+    idRefaccion INT NOT NULL,
     CantidadUsada INT NOT NULL,
-    CONSTRAINT FK_Detalle_Tickets FOREIGN KEY (IdTicket) REFERENCES TicketsReparacion(IdTicket),
+    CONSTRAINT FK_Detalle_Tickets FOREIGN KEY (idTicketReparacion) REFERENCES TicketsReparacion(idTicketReparacion),
     CONSTRAINT FK_Detalle_Refacciones FOREIGN KEY (IdRefaccion) REFERENCES Refacciones(IdRefaccion)
 );
 GO
 
 -- Tabla de Facturas
 CREATE TABLE Facturas (
-    IdFactura INT PRIMARY KEY),
-    IdTicket INT NOT NULL,
+    idFactura INT PRIMARY KEY,
+    idTicketReparacion INT NOT NULL,
     MontoTotal DECIMAL(10,2) NOT NULL,
     FechaEmision DATETIME DEFAULT GETDATE(),
     EstadoPago NVARCHAR(50) DEFAULT 'Pendiente', -- Ej: Pendiente, Pagado
-    CONSTRAINT FK_Facturas_Tickets FOREIGN KEY (IdTicket) REFERENCES TicketsReparacion(IdTicket)
+    CONSTRAINT FK_Facturas_Tickets FOREIGN KEY (idTicketReparacion) REFERENCES TicketsReparacion(idTicketReparacion)
 );
 GO
 
@@ -140,15 +140,15 @@ AFTER UPDATE
 AS
 BEGIN
     DECLARE @Estado NVARCHAR(50);
-    DECLARE @IdTicket INT;
+    DECLARE @IdTicketReparacion INT;
     
-    SELECT @Estado = u.Estado, @IdTicket = u.IdTicket FROM inserted u;
+    SELECT @Estado = u.Estado, @IdTicketReparacion = u.idTicketReparacion FROM inserted u;
     
     IF @Estado = 'Finalizado'
     BEGIN
         UPDATE TicketsReparacion
         SET FechaFinalizacion = GETDATE()
-        WHERE IdTicket = @IdTicket;
+        WHERE idTicketReparacion = @IdTicketReparacion;
     END
 END;
 GO
