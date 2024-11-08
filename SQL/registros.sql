@@ -103,6 +103,36 @@ VALUES
 (99, 'Guillermo', 'Bermúdez', 'Morales', 'guillermo.bermudez@example.com', '5512345799', 'Av. Universidad 99, Ciudad'),
 (100, 'Julio', 'Torres', 'López', 'julio.torres@example.com', '5512345800', 'Calle Guerrero 20, Ciudad');
 
+INSERT INTO Tecnicos (idTecnico, Nombre, ApellidoPaterno, ApellidoMaterno, CorreoElectronico, Telefono, Especialidad)
+VALUES 
+(1, 'Guillermo', 'Castillo', 'Fernández', 'guillermo.castillo@example.com', '5544332251', 'Electrónica'),
+(2, 'Nayeli', 'Gómez', 'Pérez', 'nayeli.gomez@example.com', '5544332252', 'Mecánica'),
+(3, 'Sergio', 'Hernández', 'Santos', 'sergio.hernandez@example.com', '5544332253', 'Computadoras'),
+(4, 'Gabriela', 'Jiménez', 'Ríos', 'gabriela.jimenez@example.com', '5544332254', 'Telefonía móvil'),
+(5, 'Rafael', 'Martínez', 'López', 'rafael.martinez@example.com', '5544332255', 'Telecomunicaciones'),
+(6, 'Andrea', 'Mendoza', 'González', 'andrea.mendoza@example.com', '5544332256', 'Electrónica'),
+(7, 'Jorge', 'Cruz', 'Hernández', 'jorge.cruz@example.com', '5544332257', 'Mecánica'),
+(8, 'Mónica', 'López', 'Pérez', 'monica.lopez@example.com', '5544332258', 'Computadoras'),
+(9, 'Francisco', 'Rodríguez', 'Sánchez', 'francisco.rodriguez@example.com', '5544332259', 'Telefonía móvil'),
+(10, 'Sandra', 'García', 'Torres', 'sandra.garcia@example.com', '5544332260', 'Telecomunicaciones'),
+(11, 'Luis', 'Álvarez', 'Ramírez', 'luis.alvarez@example.com', '5544332261', 'Electrónica'),
+(12, 'Laura', 'Moreno', 'Cruz', 'laura.moreno@example.com', '5544332262', 'Mecánica'),
+(13, 'Carlos', 'Sosa', 'González', 'carlos.sosa@example.com', '5544332263', 'Computadoras'),
+(14, 'Fernando', 'Pérez', 'Martínez', 'fernando.perez@example.com', '5544332264', 'Telefonía móvil'),
+(15, 'Ricardo', 'Vega', 'Flores', 'ricardo.vega@example.com', '5544332265', 'Telecomunicaciones'),
+(16, 'Isabel', 'Ortiz', 'Gutiérrez', 'isabel.ortiz@example.com', '5544332266', 'Electrónica'),
+(17, 'Elena', 'Núñez', 'Morales', 'elena.nunez@example.com', '5544332267', 'Mecánica'),
+(18, 'Óscar', 'Lara', 'Vargas', 'oscar.lara@example.com', '5544332268', 'Computadoras'),
+(19, 'Patricia', 'Díaz', 'Méndez', 'patricia.diaz@example.com', '5544332269', 'Telefonía móvil'),
+(20, 'Víctor', 'Salinas', 'Ramos', 'victor.salinas@example.com', '5544332270', 'Telecomunicaciones'),
+(21, 'Iván', 'Reyes', 'Santos', 'ivan.reyes@example.com', '5544332271', 'Electrónica'),
+(22, 'Luz', 'Rojas', 'Pérez', 'luz.rojas@example.com', '5544332272', 'Mecánica'),
+(23, 'Daniela', 'Vásquez', 'López', 'daniela.vasquez@example.com', '5544332273', 'Computadoras'),
+(24, 'Raúl', 'Montoya', 'Gómez', 'raul.montoya@example.com', '5544332274', 'Telefonía móvil'),
+(25, 'Gustavo', 'Herrera', 'Cruz', 'gustavo.herrera@example.com', '5544332275', 'Telecomunicaciones'),
+(26, 'Beatriz', 'Sánchez', 'Díaz', 'beatriz.sanchez@example.com', '5544332276', 'Electrónica'),
+(27, 'Alejandro', 'Pineda', 'Morales', 'alejandro.pineda@example.com', '5544332277', 'Mecánica'),
+(28, 'Rocío', 'Morales', 'Santos', 'rocio.morales@example.com', '5544332278', 'Computadoras');
 
 
 
@@ -111,7 +141,7 @@ VALUES
 
 select * from Tecnicos;
 
-INSERT INTO ModelosEquipos (IdModeloEquipo, Marca, Modelo, Tipo)
+INSERT INTO ModelosEquipos (idModeloEquipo, Marca, Modelo, Tipo)
 VALUES 
 (1, 'Samsung', 'Galaxy S22', 'Teléfono móvil'),
 (2, 'Apple', 'iPhone 13', 'Teléfono móvil'),
@@ -187,7 +217,7 @@ VALUES
 
 
 
-INSERT INTO Equipos (IdEquipo, idUsuario, IdModelo, NumeroSerie, EstadoInicial)
+INSERT INTO Equipos (idEquipo, idUsuario, idModelo, NumeroSerie, EstadoInicial)
 VALUES 
 (1, 1, 1, 'SN1234567911', 'Pantalla agrietada'),
 (2, 2, 2, 'SN1234567912', 'No enciende'),
@@ -293,7 +323,7 @@ VALUES
 
 
 
-INSERT INTO TicketsReparacion (IdTicketReparacion, IdEquipo, ProblemaReportado, IdTecnico, Estado)
+INSERT INTO TicketsReparacion (idTicketReparacion, idEquipo, ProblemaReportado, idTecnico, Estado)
 VALUES 
 (1, 1, 'Pantalla rota', 1, 'Pendiente'),
 (2, 2, 'No enciende', 2, 'En Proceso'),
@@ -454,7 +484,7 @@ VALUES
 (50, 'Teclado Microsoft Surface Duo', 5, 180.00);
 
 
-INSERT INTO DetallesReparacion (idDetalleReparacion, IdTicket, IdRefaccion, CantidadUsada)
+INSERT INTO DetallesReparacion (idDetalleReparacion, idTicket, idRefaccion, CantidadUsada)
 VALUES 
 (1, 1, 1, 1),
 (2, 2, 2, 1),

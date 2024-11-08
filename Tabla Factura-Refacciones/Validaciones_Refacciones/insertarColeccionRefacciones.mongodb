@@ -1,7 +1,7 @@
 use("db_esquema");
 
 db.refacciones.insertOne({
-    NombreRefaccion: "Bujía de Encendido", 
+    NombreRefaccion: "Pantalla", 
     CantidadDisponible: 100,              
     PrecioUnitario: NumberDecimal("20.50")  
 });
