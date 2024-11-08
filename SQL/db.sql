@@ -12,7 +12,7 @@ use Proyecto;
 
 -- Tabla de Clientes
 CREATE TABLE Usuarios (
-    IdUsuario INT PRIMARY KEY IDENTITY(1,1),
+    IdUsuario INT PRIMARY KEY,
     Nombre NVARCHAR(100) NOT NULL,
     ApellidoPaterno NVARCHAR(100) NOT NULL,
     ApellidoMaterno NVARCHAR(100),
@@ -24,7 +24,7 @@ GO
 
 -- Tabla de Técnicos
 CREATE TABLE Tecnicos (
-    IdTecnico INT PRIMARY KEY IDENTITY(1,1),
+    IdTecnico INT PRIMARY KEY,
     Nombre NVARCHAR(100) NOT NULL,
     ApellidoPaterno NVARCHAR(100) NOT NULL,
     ApellidoMaterno NVARCHAR(100),
@@ -36,7 +36,7 @@ GO
 
 -- Tabla de Modelos de Equipos
 CREATE TABLE ModelosEquipos (
-    IdModelo INT PRIMARY KEY IDENTITY(1,1),
+    IdModelo INT PRIMARY KEY,
     Marca NVARCHAR(100) NOT NULL,
     Modelo NVARCHAR(100) NOT NULL,
     Tipo NVARCHAR(100) NOT NULL -- Ej: Teléfono móvil, Computadora, Tablet
@@ -45,7 +45,7 @@ GO
 
 -- Tabla de Equipos
 CREATE TABLE Equipos (
-    IdEquipo INT PRIMARY KEY IDENTITY(1,1),
+    IdEquipo INT PRIMARY KEY,
     IdUsuarios INT NOT NULL,
     IdModelo INT NOT NULL,
     NumeroSerie NVARCHAR(100) NOT NULL,
@@ -58,7 +58,7 @@ GO
 
 -- Tabla de Tickets de Reparación
 CREATE TABLE TicketsReparacion (
-    IdTicket INT PRIMARY KEY IDENTITY(1,1),
+    IdTicket INT PRIMARY KEY,
     IdEquipo INT NOT NULL,
     IdTecnico INT NULL, -- Se asignará más tarde, puede ser nulo al inicio
     ProblemaReportado NVARCHAR(255) NOT NULL,
@@ -72,7 +72,7 @@ GO
 
 -- Tabla de Refacciones (para inventario)
 CREATE TABLE Refacciones (
-    IdRefaccion INT PRIMARY KEY IDENTITY(1,1),
+    IdRefaccion INT PRIMARY KEY,
     NombreRefaccion NVARCHAR(150) NOT NULL,
     CantidadDisponible INT NOT NULL,
     PrecioUnitario DECIMAL(10, 2) NOT NULL
@@ -81,7 +81,7 @@ GO
 
 -- Tabla de Detalles de Reparación (Relaciona refacciones usadas con tickets)
 CREATE TABLE DetallesReparacion (
-    IdDetalle INT PRIMARY KEY IDENTITY(1,1),
+    IdDetalle INT PRIMARY KEY,
     IdTicket INT NOT NULL,
     IdRefaccion INT NOT NULL,
     CantidadUsada INT NOT NULL,
@@ -92,7 +92,7 @@ GO
 
 -- Tabla de Facturas
 CREATE TABLE Facturas (
-    IdFactura INT PRIMARY KEY IDENTITY(1,1),
+    IdFactura INT PRIMARY KEY),
     IdTicket INT NOT NULL,
     MontoTotal DECIMAL(10,2) NOT NULL,
     FechaEmision DATETIME DEFAULT GETDATE(),
@@ -152,8 +152,3 @@ BEGIN
     END
 END;
 GO
-
-
-select * from TicketsReparacion;
-
-select * from Equipos;
