@@ -1,0 +1,806 @@
+use("db_esquema")
+
+db.DetallesReparacion.insertMany(
+    [
+        {
+            "idDetalleReparacion": 1,
+            "idTicketReparacion": 1,
+            "CantidadUsada": 1,
+            "NombreRefaccion": "Pantalla Samsung Galaxy S22",
+            "PrecioUnitario": 260.00,
+            "Subtotal": 260.00
+        },
+        {
+            "idDetalleReparacion": 2,
+            "idTicketReparacion": 2,
+            "CantidadUsada": 1,
+            "NombreRefaccion": "Batería iPhone 13",
+            "PrecioUnitario": 160.00,
+            "Subtotal": 160.00
+        },
+        {
+            "idDetalleReparacion": 3,
+            "idTicketReparacion": 3,
+            "CantidadUsada": 1,
+            "NombreRefaccion": "Teclado Dell Inspiron 15",
+            "PrecioUnitario": 75.00,
+            "Subtotal": 75.00
+        },
+        {
+            "idDetalleReparacion": 4,
+            "idTicketReparacion": 4,
+            "CantidadUsada": 1,
+            "NombreRefaccion": "Pantalla HP Omen 17",
+            "PrecioUnitario": 220.00,
+            "Subtotal": 220.00
+        },
+        {
+            "idDetalleReparacion": 5,
+            "idTicketReparacion": 5,
+            "CantidadUsada": 1,
+            "NombreRefaccion": "Batería Lenovo Legion 5",
+            "PrecioUnitario": 190.00,
+            "Subtotal": 190.00
+        },
+        {
+            "idDetalleReparacion": 6,
+            "idTicketReparacion": 6,
+            "CantidadUsada": 1,
+            "NombreRefaccion": "Altavoces Sony Bravia A80J",
+            "PrecioUnitario": 300.00,
+            "Subtotal": 300.00
+        },
+        {
+            "idDetalleReparacion": 7,
+            "idTicketReparacion": 7,
+            "CantidadUsada": 1,
+            "NombreRefaccion": "Pantalla LG NanoCell 75",
+            "PrecioUnitario": 400.00,
+            "Subtotal": 400.00
+        },
+        {
+            "idDetalleReparacion": 8,
+            "idTicketReparacion": 8,
+            "CantidadUsada": 1,
+            "NombreRefaccion": "Pantalla Xiaomi Redmi Note 10 Pro",
+            "PrecioUnitario": 230.00,
+            "Subtotal": 230.00
+        },
+        {
+            "idDetalleReparacion": 9,
+            "idTicketReparacion": 9,
+            "CantidadUsada": 1,
+            "NombreRefaccion": "Pantalla Huawei Mate 40",
+            "PrecioUnitario": 220.00,
+            "Subtotal": 220.00
+        },
+        {
+            "idDetalleReparacion": 10,
+            "idTicketReparacion": 10,
+            "CantidadUsada": 1,
+            "NombreRefaccion": "Teclado Microsoft Surface Pro 8",
+            "PrecioUnitario": 180.00,
+            "Subtotal": 180.00
+        },
+        {
+            "idDetalleReparacion": 11,
+            "idTicketReparacion": 11,
+            "CantidadUsada": 1,
+            "NombreRefaccion": "Pantalla Acer Nitro 5",
+            "PrecioUnitario": 200.00,
+            "Subtotal": 200.00
+        },
+        {
+            "idDetalleReparacion": 12,
+            "idTicketReparacion": 12,
+            "CantidadUsada": 1,
+            "NombreRefaccion": "Pantalla Asus TUF Gaming F15",
+            "PrecioUnitario": 250.00,
+            "Subtotal": 250.00
+        },
+        {
+            "idDetalleReparacion": 13,
+            "idTicketReparacion": 13,
+            "CantidadUsada": 1,
+            "NombreRefaccion": "Batería Toshiba Dynabook Tecra",
+            "PrecioUnitario": 140.00,
+            "Subtotal": 140.00
+        },
+        {
+            "idDetalleReparacion": 14,
+            "idTicketReparacion": 14,
+            "CantidadUsada": 1,
+            "NombreRefaccion": "Pantalla Google Pixel 6",
+            "PrecioUnitario": 250.00,
+            "Subtotal": 250.00
+        },
+        {
+            "idDetalleReparacion": 15,
+            "idTicketReparacion": 15,
+            "CantidadUsada": 1,
+            "NombreRefaccion": "Pantalla Motorola Edge 20",
+            "PrecioUnitario": 170.00,
+            "Subtotal": 170.00
+        },
+        {
+            "idDetalleReparacion": 16,
+            "idTicketReparacion": 16,
+            "CantidadUsada": 1,
+            "NombreRefaccion": "Pantalla Nokia G50",
+            "PrecioUnitario": 50.00,
+            "Subtotal": 50.00
+        },
+        {
+            "idDetalleReparacion": 17,
+            "idTicketReparacion": 17,
+            "CantidadUsada": 1,
+            "NombreRefaccion": "Altavoces Vizio P-Series Quantum",
+            "PrecioUnitario": 300.00,
+            "Subtotal": 300.00
+        },
+        {
+            "idDetalleReparacion": 18,
+            "idTicketReparacion": 18,
+            "CantidadUsada": 1,
+            "NombreRefaccion": "Pantalla OnePlus Nord 2",
+            "PrecioUnitario": 240.00,
+            "Subtotal": 240.00
+        },
+        {
+            "idDetalleReparacion": 19,
+            "idTicketReparacion": 19,
+            "CantidadUsada": 1,
+            "NombreRefaccion": "Pantalla Oppo Reno 6 Pro",
+            "PrecioUnitario": 260.00,
+            "Subtotal": 260.00
+        },
+        {
+            "idDetalleReparacion": 20,
+            "idTicketReparacion": 20,
+            "CantidadUsada": 1,
+            "NombreRefaccion": "Pantalla Realme GT Master Edition",
+            "PrecioUnitario": 220.00,
+            "Subtotal": 220.00
+        },
+        {
+            "idDetalleReparacion": 21,
+            "idTicketReparacion": 21,
+            "CantidadUsada": 1,
+            "NombreRefaccion": "Pantalla Samsung Galaxy A52",
+            "PrecioUnitario": 260.00,
+            "Subtotal": 260.00
+        },
+        {
+            "idDetalleReparacion": 22,
+            "idTicketReparacion": 22,
+            "CantidadUsada": 1,
+            "NombreRefaccion": "Batería iPhone 12 Mini",
+            "PrecioUnitario": 160.00,
+            "Subtotal": 160.00
+        },
+        {
+            "idDetalleReparacion": 23,
+            "idTicketReparacion": 23,
+            "CantidadUsada": 1,
+            "NombreRefaccion": "Teclado Dell Latitude 9510",
+            "PrecioUnitario": 75.00,
+            "Subtotal": 75.00
+        },
+        {
+            "idDetalleReparacion": 24,
+            "idTicketReparacion": 24,
+            "CantidadUsada": 1,
+            "NombreRefaccion": "Pantalla HP Elite Dragonfly",
+            "PrecioUnitario": 220.00,
+            "Subtotal": 220.00
+        },
+        {
+            "idDetalleReparacion": 25,
+            "idTicketReparacion": 25,
+            "CantidadUsada": 1,
+            "NombreRefaccion": "Batería Lenovo ThinkPad X13",
+            "PrecioUnitario": 190.00,
+            "Subtotal": 190.00
+        },
+        {
+            "idDetalleReparacion": 26,
+            "idTicketReparacion": 26,
+            "CantidadUsada": 1,
+            "NombreRefaccion": "Altavoces Sony Bravia Z9J",
+            "PrecioUnitario": 300.00,
+            "Subtotal": 300.00
+        },
+        {
+            "idDetalleReparacion": 27,
+            "idTicketReparacion": 27,
+            "CantidadUsada": 1,
+            "NombreRefaccion": "Pantalla LG QNED MiniLED 99",
+            "PrecioUnitario": 400.00,
+            "Subtotal": 400.00
+        },
+        {
+            "idDetalleReparacion": 28,
+            "idTicketReparacion": 28,
+            "CantidadUsada": 1,
+            "NombreRefaccion": "Pantalla Xiaomi Mi 11 Lite",
+            "PrecioUnitario": 230.00,
+            "Subtotal": 230.00
+        },
+        {
+            "idDetalleReparacion": 29,
+            "idTicketReparacion": 29,
+            "CantidadUsada": 1,
+            "NombreRefaccion": "Pantalla Huawei P50 Pro",
+            "PrecioUnitario": 220.00,
+            "Subtotal": 220.00
+        },
+        {
+            "idDetalleReparacion": 30,
+            "idTicketReparacion": 30,
+            "CantidadUsada": 1,
+            "NombreRefaccion": "Teclado Microsoft Surface Laptop 4",
+            "PrecioUnitario": 180.00,
+            "Subtotal": 180.00
+        },
+        {
+            "idDetalleReparacion": 31,
+            "idTicketReparacion": 31,
+            "CantidadUsada": 1,
+            "NombreRefaccion": "Pantalla Acer Swift 3",
+            "PrecioUnitario": 200.00,
+            "Subtotal": 200.00
+        },
+        {
+            "idDetalleReparacion": 32,
+            "idTicketReparacion": 32,
+            "CantidadUsada": 1,
+            "NombreRefaccion": "Pantalla Asus ZenBook 14",
+            "PrecioUnitario": 250.00,
+            "Subtotal": 250.00
+        },
+        {
+            "idDetalleReparacion": 33,
+            "idTicketReparacion": 33,
+            "CantidadUsada": 1,
+            "NombreRefaccion": "Batería Toshiba Portégé X30L",
+            "PrecioUnitario": 140.00,
+            "Subtotal": 140.00
+        },
+        {
+            "idDetalleReparacion": 34,
+            "idTicketReparacion": 34,
+            "CantidadUsada": 1,
+            "NombreRefaccion": "Pantalla Google Pixel 5a",
+            "PrecioUnitario": 250.00,
+            "Subtotal": 250.00
+        },
+        {
+            "idDetalleReparacion": 35,
+            "idTicketReparacion": 35,
+            "CantidadUsada": 1,
+            "NombreRefaccion": "Pantalla Motorola Moto G60",
+            "PrecioUnitario": 170.00,
+            "Subtotal": 170.00
+        },
+        {
+            "idDetalleReparacion": 36,
+            "idTicketReparacion": 36,
+            "CantidadUsada": 1,
+            "NombreRefaccion": "Pantalla Nokia X20",
+            "PrecioUnitario": 50.00,
+            "Subtotal": 50.00
+        },
+        {
+            "idDetalleReparacion": 37,
+            "idTicketReparacion": 37,
+            "CantidadUsada": 1,
+            "NombreRefaccion": "Altavoces Vizio OLED 55-H1",
+            "PrecioUnitario": 300.00,
+            "Subtotal": 300.00
+        },
+        {
+            "idDetalleReparacion": 38,
+            "idTicketReparacion": 38,
+            "CantidadUsada": 1,
+            "NombreRefaccion": "Pantalla OnePlus 9R",
+            "PrecioUnitario": 240.00,
+            "Subtotal": 240.00
+        },
+        {
+            "idDetalleReparacion": 39,
+            "idTicketReparacion": 39,
+            "CantidadUsada": 1,
+            "NombreRefaccion": "Pantalla Oppo Find X2",
+            "PrecioUnitario": 260.00,
+            "Subtotal": 260.00
+        },
+        {
+            "idDetalleReparacion": 40,
+            "idTicketReparacion": 40,
+            "CantidadUsada": 1,
+            "NombreRefaccion": "Pantalla Realme 8 Pro",
+            "PrecioUnitario": 220.00,
+            "Subtotal": 220.00
+        },
+        {
+            "idDetalleReparacion": 41,
+            "idTicketReparacion": 41,
+            "CantidadUsada": 1,
+            "NombreRefaccion": "Pantalla Samsung Galaxy S20 FE",
+            "PrecioUnitario": 260.00,
+            "Subtotal": 260.00
+        },
+        {
+            "idDetalleReparacion": 42,
+            "idTicketReparacion": 42,
+            "CantidadUsada": 1,
+            "NombreRefaccion": "Batería iPhone SE (2020)",
+            "PrecioUnitario": 160.00,
+            "Subtotal": 160.00
+        },
+        {
+            "idDetalleReparacion": 43,
+            "idTicketReparacion": 43,
+            "CantidadUsada": 1,
+            "NombreRefaccion": "Teclado Dell Precision 5550",
+            "PrecioUnitario": 75.00,
+            "Subtotal": 75.00
+        },
+        {
+            "idDetalleReparacion": 44,
+            "idTicketReparacion": 44,
+            "CantidadUsada": 1,
+            "NombreRefaccion": "Pantalla HP Spectre x360",
+            "PrecioUnitario": 220.00,
+            "Subtotal": 220.00
+        },
+        {
+            "idDetalleReparacion": 45,
+            "idTicketReparacion": 45,
+            "CantidadUsada": 1,
+            "NombreRefaccion": "Batería Lenovo IdeaPad 5 Pro",
+            "PrecioUnitario": 190.00,
+            "Subtotal": 190.00
+        },
+        {
+            "idDetalleReparacion": 46,
+            "idTicketReparacion": 46,
+            "CantidadUsada": 1,
+            "NombreRefaccion": "Altavoces Sony X950H",
+            "PrecioUnitario": 300.00,
+            "Subtotal": 300.00
+        },
+        {
+            "idDetalleReparacion": 47,
+            "idTicketReparacion": 47,
+            "CantidadUsada": 1,
+            "NombreRefaccion": "Pantalla LG GX OLED",
+            "PrecioUnitario": 400.00,
+            "Subtotal": 400.00
+        },
+        {
+            "idDetalleReparacion": 48,
+            "idTicketReparacion": 48,
+            "CantidadUsada": 1,
+            "NombreRefaccion": "Pantalla Xiaomi Mi Note 10",
+            "PrecioUnitario": 230.00,
+            "Subtotal": 230.00
+        },
+        {
+            "idDetalleReparacion": 49,
+            "idTicketReparacion": 49,
+            "CantidadUsada": 1,
+            "NombreRefaccion": "Pantalla Huawei Mate X2",
+            "PrecioUnitario": 220.00,
+            "Subtotal": 220.00
+        },
+        {
+            "idDetalleReparacion": 50,
+            "idTicketReparacion": 50,
+            "CantidadUsada": 1,
+            "NombreRefaccion": "Teclado Microsoft Surface Duo",
+            "PrecioUnitario": 180.00,
+            "Subtotal": 180.00
+        },
+        {
+            "idDetalleReparacion": 51,
+            "idTicketReparacion": 51,
+            "CantidadUsada": 1,
+            "NombreRefaccion": "Pantalla Samsung Galaxy S22",
+            "PrecioUnitario": 260.00,
+            "Subtotal": 260.00
+        },
+        {
+            "idDetalleReparacion": 52,
+            "idTicketReparacion": 52,
+            "CantidadUsada": 1,
+            "NombreRefaccion": "Batería iPhone 13",
+            "PrecioUnitario": 160.00,
+            "Subtotal": 160.00
+        },
+        {
+            "idDetalleReparacion": 53,
+            "idTicketReparacion": 53,
+            "CantidadUsada": 1,
+            "NombreRefaccion": "Teclado Dell Inspiron 15",
+            "PrecioUnitario": 75.00,
+            "Subtotal": 75.00
+        },
+        {
+            "idDetalleReparacion": 54,
+            "idTicketReparacion": 54,
+            "CantidadUsada": 1,
+            "NombreRefaccion": "Pantalla HP Omen 17",
+            "PrecioUnitario": 220.00,
+            "Subtotal": 220.00
+        },
+        {
+            "idDetalleReparacion": 55,
+            "idTicketReparacion": 55,
+            "CantidadUsada": 1,
+            "NombreRefaccion": "Batería Lenovo Legion 5",
+            "PrecioUnitario": 190.00,
+            "Subtotal": 190.00
+        },
+        {
+            "idDetalleReparacion": 56,
+            "idTicketReparacion": 56,
+            "CantidadUsada": 1,
+            "NombreRefaccion": "Altavoces Sony Bravia A80J",
+            "PrecioUnitario": 300.00,
+            "Subtotal": 300.00
+        },
+        {
+            "idDetalleReparacion": 57,
+            "idTicketReparacion": 57,
+            "CantidadUsada": 1,
+            "NombreRefaccion": "Pantalla LG NanoCell 75",
+            "PrecioUnitario": 400.00,
+            "Subtotal": 400.00
+        },
+        {
+            "idDetalleReparacion": 58,
+            "idTicketReparacion": 58,
+            "CantidadUsada": 1,
+            "NombreRefaccion": "Pantalla Xiaomi Redmi Note 10 Pro",
+            "PrecioUnitario": 230.00,
+            "Subtotal": 230.00
+        },
+        {
+            "idDetalleReparacion": 59,
+            "idTicketReparacion": 59,
+            "CantidadUsada": 1,
+            "NombreRefaccion": "Pantalla Huawei Mate 40",
+            "PrecioUnitario": 220.00,
+            "Subtotal": 220.00
+        },
+        {
+            "idDetalleReparacion": 60,
+            "idTicketReparacion": 60,
+            "CantidadUsada": 1,
+            "NombreRefaccion": "Teclado Microsoft Surface Pro 8",
+            "PrecioUnitario": 180.00,
+            "Subtotal": 180.00
+        },
+        {
+            "idDetalleReparacion": 61,
+            "idTicketReparacion": 61,
+            "CantidadUsada": 1,
+            "NombreRefaccion": "Pantalla Acer Nitro 5",
+            "PrecioUnitario": 200.00,
+            "Subtotal": 200.00
+        },
+        {
+            "idDetalleReparacion": 62,
+            "idTicketReparacion": 62,
+            "CantidadUsada": 1,
+            "NombreRefaccion": "Pantalla Asus TUF Gaming F15",
+            "PrecioUnitario": 250.00,
+            "Subtotal": 250.00
+        },
+        {
+            "idDetalleReparacion": 63,
+            "idTicketReparacion": 63,
+            "CantidadUsada": 1,
+            "NombreRefaccion": "Batería Toshiba Dynabook Tecra",
+            "PrecioUnitario": 140.00,
+            "Subtotal": 140.00
+        },
+        {
+            "idDetalleReparacion": 64,
+            "idTicketReparacion": 64,
+            "CantidadUsada": 1,
+            "NombreRefaccion": "Pantalla Google Pixel 6",
+            "PrecioUnitario": 250.00,
+            "Subtotal": 250.00
+        },
+        {
+            "idDetalleReparacion": 65,
+            "idTicketReparacion": 65,
+            "CantidadUsada": 1,
+            "NombreRefaccion": "Pantalla Motorola Edge 20",
+            "PrecioUnitario": 170.00,
+            "Subtotal": 170.00
+        },
+        {
+            "idDetalleReparacion": 66,
+            "idTicketReparacion": 66,
+            "CantidadUsada": 1,
+            "NombreRefaccion": "Pantalla Nokia G50",
+            "PrecioUnitario": 50.00,
+            "Subtotal": 50.00
+        },
+        {
+            "idDetalleReparacion": 67,
+            "idTicketReparacion": 67,
+            "CantidadUsada": 1,
+            "NombreRefaccion": "Altavoces Vizio P-Series Quantum",
+            "PrecioUnitario": 300.00,
+            "Subtotal": 300.00
+        },
+        {
+            "idDetalleReparacion": 68,
+            "idTicketReparacion": 68,
+            "CantidadUsada": 1,
+            "NombreRefaccion": "Pantalla OnePlus Nord 2",
+            "PrecioUnitario": 240.00,
+            "Subtotal": 240.00
+        },
+        {
+            "idDetalleReparacion": 69,
+            "idTicketReparacion": 69,
+            "CantidadUsada": 1,
+            "NombreRefaccion": "Pantalla Oppo Reno 6 Pro",
+            "PrecioUnitario": 260.00,
+            "Subtotal": 260.00
+        },
+        {
+            "idDetalleReparacion": 70,
+            "idTicketReparacion": 70,
+            "CantidadUsada": 1,
+            "NombreRefaccion": "Pantalla Realme GT Master Edition",
+            "PrecioUnitario": 220.00,
+            "Subtotal": 220.00
+        },
+        {
+            "idDetalleReparacion": 71,
+            "idTicketReparacion": 71,
+            "CantidadUsada": 1,
+            "NombreRefaccion": "Pantalla Samsung Galaxy A52",
+            "PrecioUnitario": 260.00,
+            "Subtotal": 260.00
+        },
+        {
+            "idDetalleReparacion": 72,
+            "idTicketReparacion": 72,
+            "CantidadUsada": 1,
+            "NombreRefaccion": "Batería iPhone 12 Mini",
+            "PrecioUnitario": 160.00,
+            "Subtotal": 160.00
+        },
+        {
+            "idDetalleReparacion": 73,
+            "idTicketReparacion": 73,
+            "CantidadUsada": 1,
+            "NombreRefaccion": "Teclado Dell Latitude 9510",
+            "PrecioUnitario": 75.00,
+            "Subtotal": 75.00
+        },
+        {
+            "idDetalleReparacion": 74,
+            "idTicketReparacion": 74,
+            "CantidadUsada": 1,
+            "NombreRefaccion": "Pantalla HP Elite Dragonfly",
+            "PrecioUnitario": 220.00,
+            "Subtotal": 220.00
+        },
+        {
+            "idDetalleReparacion": 75,
+            "idTicketReparacion": 75,
+            "CantidadUsada": 1,
+            "NombreRefaccion": "Batería Lenovo ThinkPad X13",
+            "PrecioUnitario": 190.00,
+            "Subtotal": 190.00
+        },
+        {
+            "idDetalleReparacion": 76,
+            "idTicketReparacion": 76,
+            "CantidadUsada": 1,
+            "NombreRefaccion": "Altavoces Sony Bravia Z9J",
+            "PrecioUnitario": 300.00,
+            "Subtotal": 300.00
+        },
+        {
+            "idDetalleReparacion": 77,
+            "idTicketReparacion": 77,
+            "CantidadUsada": 1,
+            "NombreRefaccion": "Pantalla LG QNED MiniLED 99",
+            "PrecioUnitario": 400.00,
+            "Subtotal": 400.00
+        },
+        {
+            "idDetalleReparacion": 78,
+            "idTicketReparacion": 78,
+            "CantidadUsada": 1,
+            "NombreRefaccion": "Pantalla Xiaomi Mi 11 Lite",
+            "PrecioUnitario": 230.00,
+            "Subtotal": 230.00
+        },
+        {
+            "idDetalleReparacion": 79,
+            "idTicketReparacion": 79,
+            "CantidadUsada": 1,
+            "NombreRefaccion": "Pantalla Huawei P50 Pro",
+            "PrecioUnitario": 220.00,
+            "Subtotal": 220.00
+        },
+        {
+            "idDetalleReparacion": 80,
+            "idTicketReparacion": 80,
+            "CantidadUsada": 1,
+            "NombreRefaccion": "Teclado Microsoft Surface Laptop 4",
+            "PrecioUnitario": 180.00,
+            "Subtotal": 180.00
+        },
+        {
+            "idDetalleReparacion": 81,
+            "idTicketReparacion": 81,
+            "CantidadUsada": 1,
+            "NombreRefaccion": "Pantalla Acer Swift 3",
+            "PrecioUnitario": 200.00,
+            "Subtotal": 200.00
+        },
+        {
+            "idDetalleReparacion": 82,
+            "idTicketReparacion": 82,
+            "CantidadUsada": 1,
+            "NombreRefaccion": "Pantalla Asus ZenBook 14",
+            "PrecioUnitario": 250.00,
+            "Subtotal": 250.00
+        },
+        {
+            "idDetalleReparacion": 83,
+            "idTicketReparacion": 83,
+            "CantidadUsada": 1,
+            "NombreRefaccion": "Batería Toshiba Portégé X30L",
+            "PrecioUnitario": 140.00,
+            "Subtotal": 140.00
+        },
+        {
+            "idDetalleReparacion": 84,
+            "idTicketReparacion": 84,
+            "CantidadUsada": 1,
+            "NombreRefaccion": "Pantalla Google Pixel 5a",
+            "PrecioUnitario": 250.00,
+            "Subtotal": 250.00
+        },
+        {
+            "idDetalleReparacion": 85,
+            "idTicketReparacion": 85,
+            "CantidadUsada": 1,
+            "NombreRefaccion": "Pantalla Motorola Moto G60",
+            "PrecioUnitario": 170.00,
+            "Subtotal": 170.00
+        },
+        {
+            "idDetalleReparacion": 86,
+            "idTicketReparacion": 86,
+            "CantidadUsada": 1,
+            "NombreRefaccion": "Pantalla Nokia X20",
+            "PrecioUnitario": 50.00,
+            "Subtotal": 50.00
+        },
+        {
+            "idDetalleReparacion": 87,
+            "idTicketReparacion": 87,
+            "CantidadUsada": 1,
+            "NombreRefaccion": "Altavoces Vizio OLED 55-H1",
+            "PrecioUnitario": 300.00,
+            "Subtotal": 300.00
+        },
+        {
+            "idDetalleReparacion": 88,
+            "idTicketReparacion": 88,
+            "CantidadUsada": 1,
+            "NombreRefaccion": "Pantalla OnePlus 9R",
+            "PrecioUnitario": 240.00,
+            "Subtotal": 240.00
+        },
+        {
+            "idDetalleReparacion": 89,
+            "idTicketReparacion": 89,
+            "CantidadUsada": 1,
+            "NombreRefaccion": "Pantalla Oppo Find X2",
+            "PrecioUnitario": 260.00,
+            "Subtotal": 260.00
+        },
+        {
+            "idDetalleReparacion": 90,
+            "idTicketReparacion": 90,
+            "CantidadUsada": 1,
+            "NombreRefaccion": "Pantalla Realme 8 Pro",
+            "PrecioUnitario": 220.00,
+            "Subtotal": 220.00
+        },
+        {
+            "idDetalleReparacion": 91,
+            "idTicketReparacion": 91,
+            "CantidadUsada": 1,
+            "NombreRefaccion": "Pantalla Samsung Galaxy S20 FE",
+            "PrecioUnitario": 260.00,
+            "Subtotal": 260.00
+        },
+        {
+            "idDetalleReparacion": 92,
+            "idTicketReparacion": 92,
+            "CantidadUsada": 1,
+            "NombreRefaccion": "Batería iPhone SE (2020)",
+            "PrecioUnitario": 160.00,
+            "Subtotal": 160.00
+        },
+        {
+            "idDetalleReparacion": 93,
+            "idTicketReparacion": 93,
+            "CantidadUsada": 1,
+            "NombreRefaccion": "Teclado Dell Precision 5550",
+            "PrecioUnitario": 75.00,
+            "Subtotal": 75.00
+        },
+        {
+            "idDetalleReparacion": 94,
+            "idTicketReparacion": 94,
+            "CantidadUsada": 1,
+            "NombreRefaccion": "Pantalla HP Spectre x360",
+            "PrecioUnitario": 220.00,
+            "Subtotal": 220.00
+        },
+        {
+            "idDetalleReparacion": 95,
+            "idTicketReparacion": 95,
+            "CantidadUsada": 1,
+            "NombreRefaccion": "Batería Lenovo IdeaPad 5 Pro",
+            "PrecioUnitario": 190.00,
+            "Subtotal": 190.00
+        },
+        {
+            "idDetalleReparacion": 96,
+            "idTicketReparacion": 96,
+            "CantidadUsada": 1,
+            "NombreRefaccion": "Altavoces Sony X950H",
+            "PrecioUnitario": 300.00,
+            "Subtotal": 300.00
+        },
+        {
+            "idDetalleReparacion": 97,
+            "idTicketReparacion": 97,
+            "CantidadUsada": 1,
+            "NombreRefaccion": "Pantalla LG GX OLED",
+            "PrecioUnitario": 400.00,
+            "Subtotal": 400.00
+        },
+        {
+            "idDetalleReparacion": 98,
+            "idTicketReparacion": 98,
+            "CantidadUsada": 1,
+            "NombreRefaccion": "Pantalla Xiaomi Mi Note 10",
+            "PrecioUnitario": 230.00,
+            "Subtotal": 230.00
+        },
+        {
+            "idDetalleReparacion": 99,
+            "idTicketReparacion": 99,
+            "CantidadUsada": 1,
+            "NombreRefaccion": "Pantalla Huawei Mate X2",
+            "PrecioUnitario": 220.00,
+            "Subtotal": 220.00
+        },
+        {
+            "idDetalleReparacion": 100,
+            "idTicketReparacion": 100,
+            "CantidadUsada": 1,
+            "NombreRefaccion": "Teclado Microsoft Surface Duo",
+            "PrecioUnitario": 180.00,
+            "Subtotal": 180.00
+        }
+    ]
+);

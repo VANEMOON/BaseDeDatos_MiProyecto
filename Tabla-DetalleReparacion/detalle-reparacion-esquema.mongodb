@@ -1,0 +1,37 @@
+use("db_esquema")
+
+db.createCollection("detalles_reparacion", {
+    validator: {
+        $jsonSchema: {
+        bsonType: "object",
+        required: ["IdDetalle", "IdTicket", "CantidadUsada", "NombreRefaccion", "PrecioUnitario", "Subtotal"],
+        properties: {
+                idDetalleReparacion: {
+                    bsonType: "int",
+                    description: "Debe ser un número entero y es obligatorio"
+                },
+                idTicketReparacion: {
+                    bsonType: "int",
+                    description: "Debe ser un número entero que referencia el ticket de reparación"
+                },
+                CantidadUsada: {
+                    bsonType: "int",
+                    minimum: 1,
+                    description: "Debe ser un número entero positivo y es obligatorio"
+                },
+                NombreRefaccion: {
+                    bsonType: "string",
+                    description: "Debe ser una cadena de texto y es obligatorio"
+                },
+                PrecioUnitario: {
+                    bsonType: "decimal",
+                    description: "Debe ser un número decimal y es obligatorio"
+                },
+                Subtotal: {
+                    bsonType: "decimal",
+                    description: "Debe ser un número decimal calculado como 'CantidadUsada * PrecioUnitario'"
+                }
+            }
+        }
+    }
+});

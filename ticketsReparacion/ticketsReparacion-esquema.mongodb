@@ -10,6 +10,10 @@ db.createCollection("tickets_reparacion", {
                     bsonType: "int",
                     description: "Identificador único del ticket de reparación"
                 },
+                FechaCreacion: {
+                    bsonType: "date",
+                    description: "Fecha de creación del ticket"
+                },
                 ProblemaReportado: {
                     bsonType: "string",
                     description: "Descripción del problema reportado"
@@ -24,7 +28,7 @@ db.createCollection("tickets_reparacion", {
                     properties: {
                         IdTecnico: { bsonType: "int" },
                         NombreCompleto: { bsonType: "string" },
-                        CorreoElectronico: { 
+                        CorreoElectronico: {
                             bsonType: "string",
                             pattern: "^[A-Za-z\\d.-]+@[A-Za-z\\d.-]+\\.[A-Za-z]{2,}$",
                             description: "Correo electrónico del técnico"
@@ -44,7 +48,7 @@ db.createCollection("tickets_reparacion", {
                             IdEquipo: { bsonType: "int" },
                             NumeroSerie: { bsonType: "string" },
                             EstadoInicial: { bsonType: "string" },
-                            FechaRegistro: { bsonType: "string", description: "Fecha de registro en formato string" },
+                            FechaRegistro: { bsonType: "date", description: "Fecha de registro" },
                             ModeloEquipo: {
                                 bsonType: "object",
                                 required: ["Marca", "Modelo", "Tipo"],
@@ -56,13 +60,39 @@ db.createCollection("tickets_reparacion", {
                             }
                         }
                     }
+                },
+                DetallesReparacion: {
+                    bsonType: "array",
+                    items: {
+                        bsonType: "object",
+                        required: ["idDetalleReparacion", "CantidadUsada", "NombreRefaccion", "PrecioUnitario", "Subtotal"],
+                        properties: {
+                            idDetalleReparacion: { bsonType: "int" },
+                            CantidadUsada: { bsonType: "int" },
+                            NombreRefaccion: { bsonType: "string" },
+                            PrecioUnitario: { bsonType: "double" },
+                            Subtotal: { bsonType: "double" }
+                        }
+                    }
+                },
+                GranTotal: {
+                    bsonType: "double",
+                    description: "Gran total del ticket"
+                },
+                Factura: {
+                    bsonType: "object",
+                    required: ["IdFactura", "MontoTotal", "FechaEmision", "EstadoPago"],
+                    properties: {
+                        IdFactura: { bsonType: "int" },
+                        MontoTotal: { bsonType: "double" },
+                        FechaEmision: { bsonType: "date" },
+                        EstadoPago: { bsonType: "string" }
+                    }
                 }
             }
         }
     }
 });
-
-
 
 // Crear un índice para asegurar la unicidad del campo 'IdEquipo' en la colección 'tickets_reparacion'
 db.tickets_reparacion.createIndex(
