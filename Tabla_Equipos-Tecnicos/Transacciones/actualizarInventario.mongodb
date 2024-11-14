@@ -1,0 +1,36 @@
+async function actualizarInventarioYCrearFactura(client, idRefaccion, cantidadVendida, idTicket, montoTotal) {
+    const session = client.startSession();
+
+    try {
+        session.startTransaction();
+
+        const refaccionesCollection = client.db("db_esquema").collection("refacciones");
+        const facturasCollection = client.db("db_esquema").collection("facturas");
+
+        const actualizarInventario = await refaccionesCollection.updateOne(
+            { IdRefaccion: idRefaccion },
+            { $inc: { CantidadDisponible: -cantidadVendida } },
+            { session }
+        );
+
+        if (actualizarInventario.modifiedCount === 0) {
+            throw new Error("Error al actualizar el inventario.");
+        }
+
+        const nuevaFactura = {
+            IdTicket: idTicket,
+            MontoTotal: montoTotal,
+            FechaEmision: new Date(),
+            EstadoPago: "Pendiente"
+        };
+        await facturasCollection.insertOne(nuevaFactura, { session });
+
+        await session.commitTransaction();
+        console.log("Transacción completada: Inventario actualizado y factura creada.");
+    } catch (error) {
+        console.error("Error en la transacción:", error);
+        await session.abortTransaction();
+    } finally {
+        session.endSession();
+    }
+}

@@ -1,0 +1,32 @@
+async function reabastecerInventarioYRegistrarCompra(client, idRefaccion, cantidadReabastecida, montoCompra) {
+    const session = client.startSession();
+
+    try {
+        session.startTransaction();
+
+        const refaccionesCollection = client.db("db_esquema").collection("refacciones");
+        const facturasCollection = client.db("db_esquema").collection("facturas");
+
+        await refaccionesCollection.updateOne(
+            { IdRefaccion: idRefaccion },
+            { $inc: { CantidadDisponible: cantidadReabastecida } },
+            { session }
+        );
+
+        const nuevaFactura = {
+            IdTicket: null,
+            MontoTotal: montoCompra,
+            FechaEmision: new Date(),
+            EstadoPago: "Pagado"
+        };
+        await facturasCollection.insertOne(nuevaFactura, { session });
+
+        await session.commitTransaction();
+        console.log("Transacción completada: Inventario reabastecido y factura de compra registrada.");
+    } catch (error) {
+        console.error("Error en la transacción:", error);
+        await session.abortTransaction();
+    } finally {
+        session.endSession();
+    }
+}

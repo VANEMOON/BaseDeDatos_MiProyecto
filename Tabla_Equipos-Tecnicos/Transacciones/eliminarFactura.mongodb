@@ -1,0 +1,26 @@
+async function eliminarFacturaYRestablecerInventario(client, idFactura, idRefaccion, cantidadDevuelta) {
+    const session = client.startSession();
+
+    try {
+        session.startTransaction();
+
+        const refaccionesCollection = client.db("db_esquema").collection("refacciones");
+        const facturasCollection = client.db("db_esquema").collection("facturas");
+
+        await facturasCollection.deleteOne({ IdFactura: idFactura }, { session });
+
+        await refaccionesCollection.updateOne(
+            { IdRefaccion: idRefaccion },
+            { $inc: { CantidadDisponible: cantidadDevuelta } },
+            { session }
+        );
+
+        await session.commitTransaction();
+        console.log("Transacción completada: Factura eliminada y inventario restablecido.");
+    } catch (error) {
+        console.error("Error en la transacción:", error);
+        await session.abortTransaction();
+    } finally {
+        session.endSession();
+    }
+}
