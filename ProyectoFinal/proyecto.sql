@@ -5,8 +5,49 @@
 -- ---------------------------------------------------------------------------------------------------
 
 -- ---------------------------------------------------------------------------------------------------
--- Problema 1: Hecho por Jesus Antonio Gutierres Orenda
--- ---------------------------------------------------------------------------------------------------
+-- Problema 1: Hecho por Jesus Antonio Gutierrez Orenda
+-CREATE PROCEDURE sp_RegistraEquipo
+    @IdCliente INT,                -- ID del cliente al que pertenece el equipo
+    @IdModelo INT,                 -- ID del modelo del equipo
+    @NumeroSerie VARCHAR(50),      -- Número de serie del equipo
+    @EstadoInicial VARCHAR(255)    -- Estado inicial del equipo
+AS
+BEGIN
+    -- Iniciar la transacción
+    BEGIN TRANSACTION;
+
+    DECLARE @ModeloExistente INT;
+
+    -- Verificar si el modelo de equipo existe
+    SELECT @ModeloExistente = COUNT(*) 
+    FROM ModelosEquipos 
+    WHERE IdModelo = @IdModelo;
+
+    -- Si el modelo existe, registrar el equipo
+    IF @ModeloExistente > 0
+    BEGIN
+        -- Insertar el equipo en la tabla Equipos
+        INSERT INTO Equipos (IdCliente, IdModelo, NumeroSerie, EstadoInicial)
+        VALUES (@IdCliente, @IdModelo, @NumeroSerie, @EstadoInicial);
+		
+        -- Confirmar la transacción
+        COMMIT TRANSACTION;
+	
+        PRINT 'Equipo registrado correctamente.';
+    END
+	;     -- Estado inicial del equipo
+
+    ELSE
+    BEGIN
+        -- Si el modelo no existe, revertir la transacción
+        ROLLBACK TRANSACTION;
+        
+        PRINT 'Error: El modelo no existe en la base de datos.';
+    END
+END;
+
+
+select*from Equipos ---------------------------------------------------------------------------------------------------
 
 
 -- ---------------------------------------------------------------------------------------------------
