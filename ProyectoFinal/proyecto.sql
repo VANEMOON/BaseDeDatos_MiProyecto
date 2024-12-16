@@ -18,65 +18,118 @@ s ------------------------------------------------------------------------------
 -- Problema 3: Hecho por Santiago Antonio Mora Nuñez
 -- ---------------------------------------------------------------------------------------------------
 -- Función para generar una factura
-CREATE OR REPLACE FUNCTION generar_factura(_IdTicket INT)
-RETURNS INT AS $$
+-- 2. Función para afectar inventario
+CREATE OR REPLACE FUNCTION afectar_inventario_refacciones(_id_refaccion INT, _cantidad_usada INT)
+RETURNS BOOLEAN AS $$
 DECLARE
-    _MontoTotal NUMERIC(10, 2);
-    _IdFactura INT;
+    _cantidad_disponible INT;
 BEGIN
-    -- Validar que el ticket exista y esté finalizado
-    IF NOT EXISTS (SELECT 1 FROM TicketsReparacion WHERE IdTicket = _IdTicket AND Estado = 'Finalizado') THEN
-        RAISE EXCEPTION 'El ticket % no existe o no está finalizado', _IdTicket;
+    SELECT CantidadDisponible INTO _cantidad_disponible FROM Refacciones WHERE IdRefaccion = _id_refaccion;
+
+    IF _cantidad_disponible IS NULL THEN
+        RAISE EXCEPTION 'La refacción % no existe', _id_refaccion;
+    ELSIF _cantidad_disponible < _cantidad_usada THEN
+        RAISE EXCEPTION 'No hay suficiente inventario para la refacción %', _id_refaccion;
+    ELSE
+        -- Actualizar inventario
+        UPDATE Refacciones SET CantidadDisponible = CantidadDisponible - _cantidad_usada WHERE IdRefaccion = _id_refaccion;
+        RETURN TRUE;
     END IF;
-    -- Calcular el monto total basado en los detalles de reparación asociados al ticket
-    SELECT SUM(d.CantidadUsada * r.PrecioUnitario)
-    INTO _MontoTotal
-    FROM DetallesReparacion d
-    JOIN Refacciones r ON d.IdRefaccion = r.IdRefaccion
-    WHERE d.IdTicket = _IdTicket;
-    -- Validar que el monto sea válido
-    IF _MontoTotal IS NULL OR _MontoTotal <= 0 THEN
-        RAISE EXCEPTION 'El monto total para el ticket % no es válido', _IdTicket;
-    END IF;
-    -- Insertar la factura
-    INSERT INTO Facturas (IdTicket, MontoTotal, EstadoPago)
-    VALUES (_IdTicket, _MontoTotal, 'Pendiente')
-    RETURNING IdFactura INTO _IdFactura;
-    RETURN _IdFactura;
 END;
 $$ LANGUAGE plpgsql;
 
--- Procedimiento para procesar el pago de una factura
-CREATE OR REPLACE PROCEDURE procesar_pago(_IdFactura INT)
+-- 3. Procedimiento para generar factura
+CREATE OR REPLACE PROCEDURE generar_factura(_id_ticket INT)
 AS $$
 DECLARE
-    _EstadoPago VARCHAR(50);
+    _monto_total NUMERIC(10, 2) := 0;
+    detalle RECORD;
 BEGIN
-    -- Validar que la factura exista
-    SELECT EstadoPago INTO _EstadoPago
-    FROM Facturas
-    WHERE IdFactura = _IdFactura;
-    IF _EstadoPago IS NULL THEN
-        RAISE EXCEPTION 'La factura % no existe', _IdFactura;
+    -- Verificar si el ticket existe
+    IF NOT EXISTS (SELECT 1 FROM TicketsReparacion WHERE IdTicket = _id_ticket) THEN
+        RAISE EXCEPTION 'El ticket % no existe', _id_ticket;
     END IF;
-    -- Verificar que la factura esté pendiente
-    IF _EstadoPago != 'Pendiente' THEN
-        RAISE EXCEPTION 'La factura % ya ha sido pagada o no está en estado pendiente', _IdFactura;
+
+    -- Verificar si hay detalles de reparación asociados al ticket
+    IF NOT EXISTS (SELECT 1 FROM DetallesReparacion WHERE IdTicket = _id_ticket) THEN
+        RAISE EXCEPTION 'No hay detalles de reparación asociados al ticket %', _id_ticket;
     END IF;
-    -- Actualizar el estado de la factura a pagado
-    UPDATE Facturas
-    SET EstadoPago = 'Pagado'
-    WHERE IdFactura = _IdFactura;
-    -- Actualizar el estado del ticket asociado, si aplica
-    UPDATE TicketsReparacion
-    SET Estado = 'Pagado'
-    WHERE IdTicket = (SELECT IdTicket FROM Facturas WHERE IdFactura = _IdFactura);
-    RAISE NOTICE 'El pago de la factura % se ha procesado correctamente', _IdFactura;
+
+    -- Calcular el monto total basado en DetallesReparacion
+    FOR detalle IN 
+        SELECT dr.IdRefaccion, dr.CantidadUsada, r.PrecioUnitario
+        FROM DetallesReparacion dr
+        JOIN Refacciones r ON dr.IdRefaccion = r.IdRefaccion
+        WHERE dr.IdTicket = _id_ticket
+    LOOP
+        _monto_total := _monto_total + (detalle.CantidadUsada * detalle.PrecioUnitario);
+
+        -- Afectar el inventario de la refacción usada
+        PERFORM afectar_inventario_refacciones(detalle.IdRefaccion, detalle.CantidadUsada);
+    END LOOP;
+
+    -- Insertar la factura
+    INSERT INTO Facturas (IdTicket, MontoTotal, EstadoPago)
+    VALUES (_id_ticket, _monto_total, 'Pendiente');
+
+    RAISE NOTICE 'Factura generada para el ticket %, monto total: %', _id_ticket, _monto_total;
 END;
 $$ LANGUAGE plpgsql;
 
--- Generar una factura para un ticket finalizado
-SELECT generar_factura(1);
 
--- Procesar el pago de una factura
-CALL procesar_pago(1);
+-- 4. Procedimiento para registrar el pago de una factura
+CREATE OR REPLACE PROCEDURE pagar_factura(_id_factura INT)
+AS $$
+BEGIN
+    -- Iniciar transacción
+    BEGIN
+        -- Verificar si la factura existe
+        IF NOT EXISTS (SELECT 1 FROM Facturas WHERE IdFactura = _id_factura) THEN
+            RAISE EXCEPTION 'La factura % no existe', _id_factura;
+        END IF;
+
+        -- Verificar si ya está pagada
+        IF EXISTS (SELECT 1 FROM Facturas WHERE IdFactura = _id_factura AND EstadoPago = 'Pagado') THEN
+            RAISE NOTICE 'La factura % ya está pagada', _id_factura;
+            RETURN;
+        END IF;
+
+        -- Actualizar el estado de la factura a "Pagado"
+        UPDATE Facturas SET EstadoPago = 'Pagado' WHERE IdFactura = _id_factura;
+
+        RAISE NOTICE 'Factura % pagada exitosamente', _id_factura;
+
+    EXCEPTION WHEN OTHERS THEN
+        -- Revertir transacción si ocurre un error
+        RAISE NOTICE 'Error al registrar pago: %', SQLERRM;
+        ROLLBACK;
+        RETURN;
+    END;
+END;
+$$ LANGUAGE plpgsql;
+
+-- Generar factura para el ticket 68
+CALL generar_factura(69);
+
+-- Pagar la factura generada (asegurando primero el ID)
+CALL pagar_factura(18);
+
+-- Verificar resultados
+SELECT * FROM tecnicos;
+SELECT * FROM ticketsreparacion;
+SELECT * FROM Facturas;
+SELECT * FROM Refacciones;
+SELECT * FROM Detallesreparacion;
+
+-- Inserciones --
+INSERT INTO TicketsReparacion (IdEquipo, ProblemaReportado, IdTecnico, Estado)
+VALUES 
+(1, 'Pantalla rota', 72, 'Finalizado'),
+(2, 'No enciende', 74, 'Finalizado'),
+(3, 'No enciende', 75, 'Finalizado');
+
+INSERT INTO DetallesReparacion (IdTicket, IdRefaccion, CantidadUsada)
+VALUES 
+(69, 1, 1),
+(70, 2, 2),
+(71, 3, 2);
