@@ -1,5 +1,7 @@
+-- Proyecto Final - Taller de base de datos
+-- Integrantes: Vannesa Tamayo Nuñez, Jesus Antonio Gutierrez Orenda, Santiago Antonio Mora Nuñez
 --Procedimiento Para Registrar un equipo
------Gutierrez Orenda Jesus Antonio
+-----Procedimiento realizado porGutierrez Orenda Jesus Antonio
 -- Eliminar el procedimiento si ya existe (para evitar duplicados al crearlo de nuevo)
 IF OBJECT_ID('sp_RegistrarEquipo', 'P') IS NOT NULL
     DROP PROCEDURE sp_RegistrarEquipo;
