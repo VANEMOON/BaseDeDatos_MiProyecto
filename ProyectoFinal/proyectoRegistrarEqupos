@@ -1,0 +1,56 @@
+--Procedimiento Para Registrar un equipo
+-----Gutierrez Orenda Jesus Antonio
+-- Eliminar el procedimiento si ya existe (para evitar duplicados al crearlo de nuevo)
+IF OBJECT_ID('sp_RegistrarEquipo', 'P') IS NOT NULL
+    DROP PROCEDURE sp_RegistrarEquipo;
+GO
+
+-- Crear el procedimiento almacenado
+CREATE PROCEDURE sp_RegistrarEquipo
+    @NumeroSerie NVARCHAR(50),    -- Número de serie único del equipo
+    @EstadoInicial NVARCHAR(20),  -- Estado inicial del equipo (ej. "Nuevo")
+    @IdCliente INT,               -- ID del cliente relacionado
+    @IdModelo INT                 -- ID del modelo relacionado
+AS
+BEGIN
+    -- Iniciar una transacción
+    BEGIN TRANSACTION;
+
+    BEGIN TRY
+        -- Validar que el número de serie no exista ya
+        IF EXISTS (SELECT 1 FROM Equipos WHERE NumeroSerie = @NumeroSerie)
+        BEGIN
+            THROW 50000, 'El número de serie ya existe. Operación cancelada.', 1;
+        END
+
+        -- Insertar el nuevo equipo
+        INSERT INTO Equipos (NumeroSerie, EstadoInicial, FechaRegistro, IdCliente, IdModelo)
+        VALUES (@NumeroSerie, @EstadoInicial, GETDATE(), @IdCliente, @IdModelo);
+
+        -- Confirmar la transacción si todo salió bien
+        COMMIT;
+
+        -- Mensaje de éxito
+        PRINT 'Equipo registrado exitosamente.';
+    END TRY
+
+    BEGIN CATCH
+        -- Revertir la transacción si ocurre un error
+        ROLLBACK;
+
+        -- Mostrar detalles del error
+        PRINT 'Error al registrar el equipo.';
+        PRINT ERROR_MESSAGE();
+    END CATCH
+END;
+GO
+-- Llamar al procedimiento para registrar un equipo
+EXEC sp_RegistrarEquipo 
+    @NumeroSerie = 'EQ123XYZ',      -- Número de serie del equipo
+    @EstadoInicial = 'Nuevo',       -- Estado inicial del equipo
+    @IdCliente = 1,                 -- Cliente con ID 1
+    @IdModelo = 2;                  -- Modelo con ID 2
+	-- Consultar el equipo recién registrado
+SELECT * 
+FROM Equipos 
+WHERE NumeroSerie = 'EQ123XYZ';
