@@ -76,24 +76,33 @@ GO
 -- Insertar Usuarios
 INSERT INTO Usuarios (idUsuario, Nombre, ApellidoPaterno, ApellidoMaterno, CorreoElectronico, Telefono, Direccion)
 VALUES 
+
 (1, 'Juan', 'Pérez', 'González', 'juan.perez@correo.com', '5551234567', 'Calle Ficticia 123'),
-(2, 'María', 'López', 'Martínez', 'maria.lopez@correo.com', '5552345678', 'Avenida Real 456');
+(2, 'María', 'López', 'Martínez', 'maria.lopez@correo.com', '5552345678', 'Avenida Real 456'),
+(4, 'Rosa', 'López', 'Martínez', 'rosa.lopez@correo.com', '5552345678', 'Avenida Real 456');
+
 
 
 --Modelo de Equipo 
 INSERT INTO ModelosEquipos (idModeloEquipo, Marca, Modelo, Tipo)
 VALUES 
+
 (1, 'Samsung', 'Galaxy S20', 'Teléfono móvil'),
 (2, 'HP', 'Pavilion X360', 'Computadora portátil'),
-(3, 'Apple', 'iPad Pro', 'Tablet');
+(3, 'Apple', 'iPad Pro', 'Tablet'),
+(4, 'Apple', 'iPad Pro', 'Tablet');
+
 
 -- Insertar Equipos
 INSERT INTO Equipos (idEquipo, idUsuario, idModeloEquipo, NumeroSerie, EstadoInicial)
 VALUES 
+
 (4, 2, 2, 'SN654321', 'Teclado dañado'),
 (1, 1, 1, 'SN123456', 'Pantalla rota'),
 (2, 2, 2, 'SN654321', 'Teclado dañado'),
-(3, 1, 3, 'SN789012', 'Sin daños aparentes');
+(3, 1, 3, 'SN789012', 'Sin daños aparentes'),
+(5, 1, 3, 'SN789052', 'Sin daños aparentes');
+
 
 
 
@@ -102,17 +111,24 @@ VALUES
 -- Insertar Técnicos
 INSERT INTO Tecnicos (idTecnico, Nombre, ApellidoPaterno, ApellidoMaterno, CorreoElectronico, Telefono, Especialidad)
 VALUES 
+
 (1, 'Carlos', 'Ramírez', 'Hernández', 'carlos.ramirez@correo.com', '5553456789', 'Electrónica'),
-(2, 'Ana', 'Torres', 'Vásquez', 'ana.torres@correo.com', '5554567890', 'Mecánica');
+(2, 'Ana', 'Torres', 'Vásquez', 'ana.torres@correo.com', '5554567890', 'Mecánica'),
+(4, 'Toño', 'Torres', 'Vásquez', 'toño.torres@correo.com', '5554567890', 'Mecánica');
+
 
 
 
 -- Insertar Tickets de Reparación Existentes
 INSERT INTO TicketsReparacion (idTicketReparacion, idEquipo, idTecnico, ProblemaReportado, Estado)
 VALUES 
-(1, 1, NULL, 'Pantalla rota', 'Pendiente'),
-(2, 2, NULL, 'Teclado dañado', 'Pendiente'),
-(3, 3, NULL, 'Sin daños aparentes', 'Pendiente');
+(1, 1, 1, 'Pantalla rota', 'Pendiente'),
+(2, 2, 2, 'Teclado dañado', 'Pendiente'),
+(3, 3, 3, 'Sin daños aparentes', 'Pendiente');
+
+---------------------Eliminar Tickets---------------------------
+DELETE FROM TicketsReparacion
+WHERE IdTicketReparacion = 3;
 
 
 
@@ -120,7 +136,11 @@ VALUES
 
 ------------------------------------------Ejecutar procedimiento------------------------------------
 
-EXEC sp_GenerarTicketReparacion @idEquipo = 2, @idTecnico = 3, @ProblemaReportado = 'Fallo en batería';
+EXEC sp_GenerarTicketReparacion 
+	
+    @idEquipo = 4, 
+    @idTecnico = 4, 
+    @ProblemaReportado = 'Fallo en batería';
 
 
 
@@ -148,8 +168,9 @@ EXEC sp_GenerarTicketReparacion @idEquipo = 999, @idTecnico = 2, @ProblemaReport
 
 --2.Equipo sin cliente asignado:
 INSERT INTO Equipos (idEquipo, idUsuario, idModeloEquipo, NumeroSerie, FechaRegistro)
-VALUES (3, NULL, 3, 'SN000789', '2024-06-03');
-EXEC sp_GenerarTicketReparacion @idEquipo = 3, @idTecnico = 2, @ProblemaReportado = 'Fallo en batería';
+VALUES (6, NULL, 3, 'SN000789', '2024-06-03');
+
+EXEC sp_GenerarTicketReparacion @idEquipo = 6, @idTecnico = 2, @ProblemaReportado = 'Fallo en batería';
 
 --3.Ticket pendiente existente:
 EXEC sp_GenerarTicketReparacion @idEquipo = 1, @idTecnico = 2, @ProblemaReportado = 'Otro fallo';
