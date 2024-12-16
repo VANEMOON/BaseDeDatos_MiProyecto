@@ -8,7 +8,7 @@ IF OBJECT_ID('sp_RegistrarEquipo', 'P') IS NOT NULL
 GO
 
 -- Crear el procedimiento almacenado
-CREATE PROCEDURE sp_RegistrarEquipo
+CREATE ALTER  PROCEDURE sp_RegistrarEquipo
     @NumeroSerie NVARCHAR(50),    -- Número de serie único del equipo
     @EstadoInicial NVARCHAR(20),  -- Estado inicial del equipo (ej. "Nuevo")
     @IdCliente INT,               -- ID del cliente relacionado
