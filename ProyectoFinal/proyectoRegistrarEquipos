@@ -1,5 +1,7 @@
---Procedimiento Para Registrar un equipo
------Gutierrez Orenda Jesus Antonio
+-- Proyecto Final - Taller de base de datos
+-- Integrantes: Vannesa Tamayo Nuñez, Jesus Antonio Gutierres Orenda, Santiago Antonio Mora Nuñez
+-- Procedimiento realizado  por Gutierrez Orenda Jesus Antonio
+--Procedimiento  registrar un equipo
 -- Eliminar el procedimiento si ya existe (para evitar duplicados al crearlo de nuevo)
 IF OBJECT_ID('sp_RegistrarEquipo', 'P') IS NOT NULL
     DROP PROCEDURE sp_RegistrarEquipo;
